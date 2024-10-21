@@ -26,8 +26,7 @@ struct GamesView: View {
                         NavigationLink(destination: {
                             GameCardView(viewModel: GameCardViewModel(manager: manager,
                                                                       context: viewContext),
-                                         isNewGame: false,
-                                         courseHoles: 9)
+                                         isNewGame: false)
                             .padding(.all, 20)
                         }) {
                             GamesViewCell(courseName: "Course \(i)")
@@ -45,8 +44,7 @@ struct GamesView: View {
         .navigationDestination(isPresented: $addGamePressed) {
             GameCardView(viewModel: GameCardViewModel(manager: manager,
                                                       context: viewContext),
-                                                     isNewGame: true,
-                                                     courseHoles: 9)
+                                                     isNewGame: true)
         }
     }
 }

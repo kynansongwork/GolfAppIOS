@@ -29,7 +29,11 @@ enum CourseType: String, Decodable {
     case mixed = "Mixed"
 }
 
-struct CourseModel: Identifiable, Decodable {
+struct CourseModel: Identifiable, Equatable, Decodable {
+    static func == (lhs: CourseModel, rhs: CourseModel) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     var id = UUID()
     let course: String
     let region: String

@@ -9,22 +9,24 @@ import SwiftUI
 
 struct CoursesList: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
+    @Binding var selectedCourse: CourseModel?
     let courses: [CourseModel]
     
+    
     var body: some View {
-        List {
-            ForEach(courses) { course in
-                HStack(spacing: 0) {
-                    Text(course.course)
-                    Spacer()
-                    Text(course.region)
+        List(courses) { course in
+            CourseRow(course: course, isSelected: course == selectedCourse)
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    selectedCourse = course
+                    presentationMode.wrappedValue.dismiss()
                 }
-            }
         }
-
     }
 }
 
-#Preview {
-    CoursesList(courses: [])
-}
+//#Preview {
+//    CourseList(courses: [], selectedCourse: nil)
+//}

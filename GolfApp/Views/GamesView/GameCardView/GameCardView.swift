@@ -12,8 +12,9 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
     @ObservedObject var viewModel: ViewModel
     
     @State private var gameDate = Date.now
+    @State private var selectedCourse: CourseModel?
+    
     let isNewGame: Bool
-    let courseHoles: Int
     
     var body: some View {
         VStack(spacing: 0) {
@@ -27,8 +28,9 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                         VStack(spacing: 0) {
                             HStack(spacing: 20) {
 
-                                NavigationLink("Select a course", destination: {
-                                    CoursesList(courses: viewModel.courses)
+                                NavigationLink(selectedCourseName(), destination: {
+                                    CoursesList(selectedCourse: $selectedCourse,
+                                                courses: viewModel.courses)
                                 })
                                 
                                 DatePicker("Date", selection: $gameDate)
@@ -50,7 +52,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                     Text("Score")
                                 }
                                 
-                                ForEach(0...courseHoles, id: \.self) { course in
+                                ForEach(0...setCourseHoles(), id: \.self) { course in
                                     GameCardScoreView(courseHole: course)
                                 }
                             }
@@ -73,10 +75,27 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
     }
 }
 
+extension GameCardView {
+    func selectedCourseName() -> String {
+        if let selectedCourse {
+            return selectedCourse.course
+        } else {
+            return "Select a course"
+        }
+    }
+    
+    func setCourseHoles() -> Int {
+        if let index = viewModel.courses.firstIndex(where: { $0.course == selectedCourseName() }) {
+            return viewModel.courses[index].holes ?? 0
+        }
+        
+        return 0
+    }
+}
+
 #Preview {
     GameCardView(viewModel: GameCardViewModel(manager: .init(),
                                               context: .init()),
-                 isNewGame: false,
-                 courseHoles: 18)
+                 isNewGame: false)
 }
 
