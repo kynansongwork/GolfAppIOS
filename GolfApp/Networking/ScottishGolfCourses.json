@@ -1,0 +1,502 @@
+[
+    {
+      "COURSE": "Aberdeen Petroleum Kippie Lodge",
+      "REGION": "Aberdeen & Grampian",
+      "POSTCODE": "AB13 0AB",
+      "Coordinates": {
+        "lat": 57.10296,
+        "long": -2.2500745
+      },
+      "TYPE": "Parkland",
+      "YRDS": 1594,
+      "HOLES": 9,
+      "PAR": 56,
+      "courseRating": 57.7,
+      "slopeRating": 92,
+      "golfshakeRating": 4.48,
+      "Private": true,
+      "courseHC": 12.44690265,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Aberdour",
+      "REGION": "Fife",
+      "POSTCODE": "KY3 0TX",
+      "Coordinates": {
+        "lat": 56.04934,
+        "long": -3.29923
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5447,
+      "HOLES": 18,
+      "PAR": 67,
+      "courseRating": 66,
+      "slopeRating": 116,
+      "officialRating": 151,
+      "golfshakeRating": 4.45,
+      "costSummer": 65,
+      "courseHC": 12.55044248,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Aberfeldy",
+      "REGION": "Perthshire",
+      "POSTCODE": "PH15 2BJ",
+      "Coordinates": {
+        "lat": 56.6216624,
+        "long": -3.8721815
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5394,
+      "HOLES": 9,
+      "PAR": 68,
+      "courseRating": 66.4,
+      "slopeRating": 112,
+      "golfshakeRating": 2.73,
+      "costSummer": 20,
+      "courseHC": 11.48318584,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Aberfoyle",
+      "REGION": "Falkirk",
+      "POSTCODE": "FK8 3UY",
+      "Coordinates": {
+        "lat": 56.1747219,
+        "long": -4.3628708
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5158,
+      "HOLES": 18,
+      "PAR": 66,
+      "courseRating": 66.3,
+      "slopeRating": 120,
+      "golfshakeRating": 4.43,
+      "costSummer": 35,
+      "courseHC": 14.31769912,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Abernethy",
+      "REGION": "Perthshire",
+      "POSTCODE": "PH25 3EB",
+      "lat,long": "57.2693383, -3.6537538",
+      "Coordinates": {
+        "lat": 57.2693383,
+        "long": -3.6537538
+      },
+      "TYPE": "Moorland",
+      "YRDS": 5052,
+      "HOLES": 9,
+      "PAR": 66,
+      "courseRating": 65.9,
+      "slopeRating": 109,
+      "golfshakeRating": 4.3,
+      "costSummer": 35,
+      "courseHC": 12.63274336,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Aboyne",
+      "REGION": "Aberdeen & Grampian",
+      "POSTCODE": "AB34 5HP",
+      "Coordinates": {
+        "lat": 57.0839659,
+        "long": -2.7705479
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5362,
+      "HOLES": 18,
+      "PAR": 72,
+      "courseRating": 68.7,
+      "slopeRating": 117,
+      "officialRating": 122,
+      "golfshakeRating": 4.46,
+      "costSummer": 60,
+      "courseHC": 10.36725664,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Aigas",
+      "REGION": "The Scottish Highlands",
+      "POSTCODE": "IV4 7AD",
+      "Coordinates": {
+        "lat": 57.4391104,
+        "long": -4.5669776
+      },
+      "TYPE": "Parkland",
+      "YRDS": 4878,
+      "HOLES": 9,
+      "PAR": 66,
+      "courseRating": 62.9,
+      "slopeRating": 110,
+      "golfshakeRating": 4.19,
+      "costSummer": 20,
+      "courseHC": 9.749557522,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Airdrie",
+      "REGION": "Glasgow & Clyde Valley",
+      "POSTCODE": "ML6 0PQ",
+      "Coordinates": {
+        "lat": 55.87893,
+        "long": -3.9913482
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5772,
+      "HOLES": 18,
+      "PAR": 69,
+      "courseRating": 69.4,
+      "slopeRating": 115,
+      "golfshakeRating": 4.39,
+      "costSummer": 35,
+      "courseHC": 13.83362832,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Airthrey",
+      "REGION": "Falkirk",
+      "Coordinates": {
+        "lat": 56.149367,
+        "long": -3.910003
+      },
+      "TYPE": "Parkland",
+      "YRDS": 1168,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Alexandra Park",
+      "REGION": "Glasgow & Clyde Valley",
+      "Coordinates": {
+        "lat": 55.866900,
+        "long": -4.206997
+      },
+      "TYPE": "Parkland",
+      "YRDS": 4016,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Alford",
+      "REGION": "Aberdeen & Grampian",
+      "POSTCODE": "AB33 8AL",
+      "Coordinates": {
+        "lat": 57.2340712,
+        "long": -2.7028104
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5483,
+      "HOLES": 18,
+      "PAR": 69,
+      "courseRating": 65.6,
+      "slopeRating": 111,
+      "golfshakeRating": 4.07,
+      "costSummer": 35,
+      "courseHC": 9.566371681,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Alloa",
+      "REGION": "Falkirk",
+      "POSTCODE": "FK10 3NT",
+      "Coordinates": {
+        "lat": 56.1307948,
+        "long": -3.7719121
+      },
+      "TYPE": "Parkland",
+      "YRDS": 6266,
+      "HOLES": 18,
+      "PAR": 71,
+      "courseRating": 70.7,
+      "slopeRating": 125,
+      "officialRating": 127,
+      "golfshakeRating": 4.26,
+      "costSummer": 40,
+      "courseHC": 14.30176991,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Alness",
+      "REGION": "The Scottish Highlands",
+      "POSTCODE": "IV17 0YE",
+      "Coordinates": {
+        "lat": 57.7022935,
+        "long": -4.2601212
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5013,
+      "HOLES": 18,
+      "PAR": 67,
+      "courseRating": 64.2,
+      "slopeRating": 114,
+      "golfshakeRating": 4,
+      "costSummer": 30,
+      "CostWinter": 10,
+      "courseHC": 10.51681416,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Alva",
+      "REGION": "Falkirk",
+      "POSTCODE": "FK12 5LH",
+      "Coordinates": {
+        "lat": 56.156403,
+        "long": -3.799269
+      },
+      "TYPE": "Parkland",
+      "YRDS": 4846,
+      "HOLES": 9,
+      "PAR": 66,
+      "courseRating": 63.6,
+      "slopeRating": 111,
+      "golfshakeRating": 3.13,
+      "costSummer": 15,
+      "courseHC": 10.56637168,
+      "myRating": 0
+    },
+    {
+      "COURSE": "Alyth",
+      "REGION": "Perthshire",
+      "POSTCODE": "PH11 8HF",
+      "Coordinates": {
+        "lat": 56.621722,
+        "long": -3.2057726
+      },
+      "TYPE": "Heathland",
+      "YRDS": 6264,
+      "HOLES": 18,
+      "PAR": 70,
+      "courseRating": 71.2,
+      "slopeRating": 133,
+      "officialRating": 136,
+      "golfshakeRating": 4.67,
+      "costSummer": 65,
+      "Course HC": 16.73628319,
+      "My Rating": 0
+    },
+    {
+      "COURSE": "Annanhill",
+      "REGION": "Ayrshire",
+      "POSTCODE": "KA1 3XB",
+      "Coordinates": {
+        "lat": 55.6109667,
+        "long": -4.5235914
+      },
+      "TYPE": "Parkland",
+      "YRDS": 5954,
+      "HOLES": 18,
+      "PAR": 69,
+      "courseRating": 70.3,
+      "slopeRating": 121,
+      "golfshakeRating": 4.02,
+      "costSummer": 22,
+      "courseHC": 15.43451327,
+      "myRating": 0
+    },
+    {
+        "COURSE": "Anstruther",
+        "REGION": "Fife",
+        "POSTCODE": "KY10 3DZ",
+        "Coordinates": {
+            "lat": 56.2189071,
+            "long": -2.7056719
+        },
+        "TYPE": "Parkland",
+        "YRDS": 4690,
+        "HOLES": 9,
+        "PAR": 63,
+        "courseRating": 62.8,
+        "slopeRating": 96,
+        "Official Rating": 199,
+        "golfshakeRating": 4.62,
+        "costSummer": 50,
+        "courseHC": 11.01415929,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Arbroath",
+        "REGION": "Dundee",
+        "POSTCODE": "DD11 2PE",
+        "Coordinates": {
+            "lat": 56.54367,
+            "long": -2.62264
+        },
+        "TYPE": "Links",
+        "YRDS": 6200,
+        "HOLES": 18,
+        "PAR": 70,
+        "courseRating": 69.7,
+        "slopeRating": 126,
+        "officialRating": 110,
+        "golfshakeRating": 4.24,
+        "costSummer": 65,
+        "CostWinter": 35,
+        "courseHC": 14.41858407,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Archerfield Dirleton",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH39 5HY",
+        "lat,long": "56.0553006, -2.8017192",
+        "Coordinates": {
+            "lat": 56.0553006,
+            "long": -2.8017192
+        },
+        "TYPE": "Links",
+        "YRDS": 6946,
+        "HOLES": 18,
+        "PAR": 72,
+        "Course Rating": 73.1,
+        "slopeRating": 123,
+        "officialRating": 68,
+        "golfshakeRating": 4.85,
+        "courseHC": 15.46814159,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Archerfield Fidra",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH39 5HU",
+        "Coordinates": {
+            "lat": 56.055247,
+            "long": -2.8001378
+        },
+        "TYPE": "Links",
+        "YRDS": 6948,
+        "HOLES": 18,
+        "PAR": 72,
+        "courseRating": 71.3,
+        "slopeRating": 130,
+        "officialRating": 45,
+        "golfshakeRating": 4.85,
+        "Private": true,
+        "courseHC": 14.48584071,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Ardeer",
+        "REGION": "Ayrshire",
+        "POSTCODE": "KA20 4LB",
+        "Coordinates": {
+            "lat": 55.6540631,
+            "long": -4.7489955
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6424,
+        "HOLES": 18,
+        "PAR": 72,
+        "courseRating": 70.7,
+        "slopeRating": 126,
+        "golfshakeRating": 3.12,
+        "costSummer": 40,
+        "CostWinter": 20,
+        "courseHC": 13.41858407,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Ardfin",
+        "REGION": "The Outer & Inner Hebrides",
+        "POSTCODE": "PA60 7XX",
+        "lat,long": "55.8003587, -6.0136424",
+        "Coordinates": {
+            "lat": 55.8003587,
+            "long": -6.0136424
+        },
+        "TYPE": "Links",
+        "YRDS": 6812,
+        "HOLES": 18,
+        "PAR": 72,
+        "Course Rating": 74.1,
+        "Slope Rating": 140,
+        "Official Rating": 10,
+        "costSummer": 500,
+        "courseHC": 18.4539823,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Braid Hills",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH10 6JY",
+        "Coordinates": {
+            "lat": 55.9160843,
+            "long": -3.2045417
+        },
+        "TYPE": "Heathland",
+        "YRDS": 5865,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 67.2,
+        "slopeRating": 108,
+        "officialRating": 145,
+        "golfshakeRating": 4,
+        "costSummer": 150,
+        "CostWinter": 55,
+        "courseHC": 8.815929204,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Gleneagles Hotel - Kings Course",
+        "REGION": "Perthshire",
+        "POSTCODE": "PH3 1NF",
+        "Coordinates": {
+            "lat": 56.282182,
+            "long": -3.7529772
+        },
+        "TYPE": "Heathland",
+        "YRDS": 6790,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 73,
+        "slopeRating": 136,
+        "officialRating": 14,
+        "golfshakeRating": 4.88,
+        "costSummer": 325,
+        "CostWinter": 95,
+        "courseHC": 17.88672566,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Gleneagles Hotel - PGA Centenary Course",
+        "REGION": "Perthshire",
+        "POSTCODE": "PH3 1NF",
+        "lat,long": "56.2819289, -3.7519365",
+        "Coordinates": {
+            "lat": 56.2819289,
+            "long": -3.7519365
+        },
+        "TYPE": "Parkland",
+        "YRDS": 7296,
+        "HOLES": 18,
+        "PAR": 72,
+        "courseRating": 73.4,
+        "slopeRating": 140,
+        "officialRating": 61,
+        "golfshakeRating": 4.88,
+        "costSummer": 325,
+        "CostWinter": 95,
+        "courseHC": 17.7539823,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Gleneagles Hotel - Queens Course",
+        "REGION": "Perthshire",
+        "POSTCODE": "PH3 1NF",
+        "Coordinates": {
+            "lat": 56.281646,
+            "long": -3.7519687
+        },
+        "TYPE": "Parkland",
+        "YRDS": 5965,
+        "HOLES": 18,
+        "PAR": 68,
+        "courseRating": 70.4,
+        "slopeRating": 127,
+        "officialRating": 19,
+        "golfshakeRating": 4.88,
+        "costSummer": 325,
+        "CostWinter": 95,
+        "Course HC": 17.23539823,
+        "My Rating": 0
+       }
+]
