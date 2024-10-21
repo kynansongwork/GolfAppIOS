@@ -53,6 +53,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                 }
                                 
                                 ForEach(0...setCourseHoles(), id: \.self) { course in
+                                    //TODO: Don't show for 0 holes.
                                     GameCardScoreView(courseHole: course)
                                 }
                             }
@@ -66,7 +67,11 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
             if isNewGame {
                 Button("Save Game") {
                     print("New game saved")
-                    //self.viewModel.saveData(courseName: <#T##String#>, date: <#T##Date#>, scores: <#T##Scores#>)
+                    self.viewModel.saveData(courseName: selectedCourseName(),
+                                            date: gameDate,
+                                            scores: Scores(scores: [Score(hole: 1,
+                                                                          par: 2,
+                                                                          score: 3)]))
                 }
                 .padding(.bottom, 20)
             }

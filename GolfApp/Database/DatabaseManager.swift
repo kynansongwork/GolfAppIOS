@@ -11,6 +11,8 @@ import Foundation
 // Main data manager to handle the Games items
 class DatabaseManager: NSObject, ObservableObject {
     
+    @Published var games: [Game] = []
+    
     // Add the Core Data container with the model name
     let container: NSPersistentContainer = NSPersistentContainer(name: "Games")
     

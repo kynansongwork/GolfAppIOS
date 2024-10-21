@@ -12,9 +12,9 @@ struct GamesView: View {
     @EnvironmentObject var manager: DatabaseManager
     @Environment(\.managedObjectContext) var viewContext
     
-    @State private var addGamePressed = false
+    @FetchRequest(sortDescriptors: []) private var games: FetchedResults<Game>
     
-    @State var games: [GameTest] = []
+    @State private var addGamePressed = false
     
     var body: some View {
         
@@ -22,12 +22,14 @@ struct GamesView: View {
         NavigationStack {
             VStack {
                 ScrollView(.vertical) {
-                    ForEach(1..<10) { i in
+                    ForEach(games, id: \.self) { i in
                         NavigationLink(destination: {
                             GameCardView(viewModel: GameCardViewModel(manager: manager,
                                                                       context: viewContext),
                                          isNewGame: false)
                             .padding(.all, 20)
+                            
+                            //TODO: Add swipe to delete.
                         }) {
                             GamesViewCell(courseName: "Course \(i)")
                                 .padding(.all, 10)
@@ -64,6 +66,7 @@ extension GamesView {
             }
             .frame(minWidth: 100, maxWidth: .infinity, minHeight: 44, maxHeight: 44, alignment: .center)
         }
+        //TODO: Use button styles here.
         .font(.headline)
         .foregroundColor(.white)
         .frame(height: 50)
