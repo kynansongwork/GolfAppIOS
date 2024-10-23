@@ -28,12 +28,12 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
                         NavigationLink(destination: {
                             GameCardView(viewModel: GameCardViewModel(manager: manager,
                                                                       context: viewContext),
-                                         isNewGame: false)
+                                         gameData: i)
                             .padding(.all, 20)
                             
                             //TODO: Add swipe to delete.
                         }) {
-                            GamesViewCell(gameInfo: viewModel.mapGameInfo(game: i))
+                            GamesCell(gameInfo: viewModel.mapGameInfo(game: i))
                                 .padding(.all, 10)
                         }
                     }
@@ -48,7 +48,7 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
         .navigationDestination(isPresented: $addGamePressed) {
             GameCardView(viewModel: GameCardViewModel(manager: manager,
                                                       context: viewContext),
-                                                     isNewGame: true)
+                                                     gameData: nil)
         }
     }
 }

@@ -16,7 +16,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
     @State private var gameDate = Date.now
     @State private var selectedCourse: CourseModel?
     
-    let isNewGame: Bool
+    let gameData: Game?
     
     var body: some View {
         VStack(spacing: 0) {
@@ -27,7 +27,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                 
                 VStack(spacing: 0) {
                     ZStack {
-                        VStack(spacing: 0) {
+                        VStack(spacing: .zero) {
                             HStack(spacing: 20) {
 
                                 NavigationLink(selectedCourseName(), destination: {
@@ -42,43 +42,53 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                             Spacer()
                         }
                         
-                        ScrollView(.horizontal) {
-                            HStack(alignment: .center, spacing: 0) {
-                                
-                                VStack(alignment: .center, spacing: 10) {
-                                    Text("Hole")
-                                        .font(.headline)
-                                        .foregroundColor(.secondary)
-                                        .frame(maxWidth: .infinity)
-                                        .background(Color.mint)
-                                    Text("Par")
-                                    Text("Score")
+                        VStack(spacing: 20) {
+                            
+                            Text("Course Par: \(selectedCourse?.par ?? 0)")
+                            
+                            ScrollView(.horizontal) {
+                                HStack(alignment: .center, spacing: 0) {
+                                    
+                                    VStack(alignment: .center, spacing: 10) {
+                                        Text("Hole")
+                                            .font(.headline)
+                                            .foregroundColor(.secondary)
+                                            .frame(maxWidth: .infinity)
+                                            .background(Color.mint)
+                                        Text("Par")
+                                        Text("Score")
+                                    }
+                                    
+                                    ForEach(0...setCourseHoles(), id: \.self) { course in
+                                        //TODO: Don't show for 0 holes.
+                                        GameCardScoreView(courseHole: course)
+                                    }
                                 }
-                                
-                                ForEach(0...setCourseHoles(), id: \.self) { course in
-                                    //TODO: Don't show for 0 holes.
-                                    GameCardScoreView(courseHole: course)
-                                }
+                                .padding(.horizontal, 20)
                             }
-                            .padding(.horizontal, 20)
+                            
+                            Text("Your total score is:")
                         }
                     }
                 }
             }
             .padding(.all, 20)
             
-            if isNewGame {
-                Button("Save Game") {
-                    print("New game saved")
+            Button(gameData != nil ? "Update Game" : "Save Game") {
+
+                if let gameData {
+                    print("Editing game \(gameData)")
+                } else {
                     self.viewModel.saveData(courseName: selectedCourseName(),
                                             date: gameDate,
                                             scores: Scores(scores: [Score(hole: 1,
                                                                           par: 2,
                                                                           score: 3)]))
-                    presentationMode.wrappedValue.dismiss()
                 }
-                .padding(.bottom, 20)
+                
+                presentationMode.wrappedValue.dismiss()
             }
+            .padding(.bottom, 20)
         }
  
     }
@@ -105,6 +115,6 @@ extension GameCardView {
 #Preview {
     GameCardView(viewModel: GameCardViewModel(manager: .init(),
                                               context: .init()),
-                 isNewGame: false)
+                 gameData: nil)
 }
 
