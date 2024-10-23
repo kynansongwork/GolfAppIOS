@@ -7,10 +7,12 @@
 
 import SwiftUI
 
-struct GamesView: View {
+struct GamesView<ViewModel: GamesViewModelling>: View {
     
     @EnvironmentObject var manager: DatabaseManager
     @Environment(\.managedObjectContext) var viewContext
+    
+    @ObservedObject var viewModel: ViewModel
     
     @FetchRequest(sortDescriptors: []) private var games: FetchedResults<Game>
     
@@ -31,7 +33,7 @@ struct GamesView: View {
                             
                             //TODO: Add swipe to delete.
                         }) {
-                            GamesViewCell(courseName: "Course \(i)")
+                            GamesViewCell(gameInfo: viewModel.mapGameInfo(game: i))
                                 .padding(.all, 10)
                         }
                     }
@@ -80,6 +82,6 @@ extension GamesView {
 }
 
 #Preview {
-    GamesView()
+    GamesView(viewModel: GamesViewModel())
 }
 

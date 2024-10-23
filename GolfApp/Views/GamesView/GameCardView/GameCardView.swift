@@ -9,6 +9,8 @@ import SwiftUI
 
 struct GameCardView<ViewModel: GameCardViewModelling>: View {
     
+    @Environment(\.presentationMode) var presentationMode
+    
     @ObservedObject var viewModel: ViewModel
     
     @State private var gameDate = Date.now
@@ -33,7 +35,8 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                                 courses: viewModel.courses)
                                 })
                                 
-                                DatePicker("Date", selection: $gameDate)
+                                DatePicker("", selection: $gameDate)
+                                //TODO: Change from HStack to Vstack if title too long?
                             }
                             .padding(.all, 20)
                             Spacer()
@@ -72,6 +75,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                             scores: Scores(scores: [Score(hole: 1,
                                                                           par: 2,
                                                                           score: 3)]))
+                    presentationMode.wrappedValue.dismiss()
                 }
                 .padding(.bottom, 20)
             }

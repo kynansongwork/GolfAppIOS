@@ -9,8 +9,7 @@ import SwiftUI
 
 struct GamesViewCell: View {
     
-    let courseName: String
-    let date: Date = Date.now
+    let gameInfo: GameInfo
     
     var body: some View {
         
@@ -19,9 +18,9 @@ struct GamesViewCell: View {
                 .fill(.white)
                 .shadow(radius: 10)
             HStack(spacing: 0) {
-                Text(courseName)
+                Text(gameInfo.courseName)
                     .padding(.all, 10)
-                Text("Date: \(date)")
+                Text("Date: \(gameInfo.date)")
                     .padding(.all, 10)
             }
         }
@@ -30,5 +29,5 @@ struct GamesViewCell: View {
 }
 
 #Preview {
-    GamesViewCell(courseName: "Test")
+    GamesViewCell(gameInfo: GameInfo(courseName: "", date: nil, id: nil, scores: nil))
 }

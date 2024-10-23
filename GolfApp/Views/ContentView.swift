@@ -25,7 +25,7 @@ struct ContentView: View {
                 }
             
             NavigationStack {
-                GamesView()
+                GamesView(viewModel: GamesViewModel())
                     .background(Color.white)
             }
             .padding(.bottom, 1)

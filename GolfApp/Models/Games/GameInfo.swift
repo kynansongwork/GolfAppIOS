@@ -1,5 +1,5 @@
 //
-//  Game.swift
+//  GameInfo.swift
 //  GolfApp
 //
 //  Created by Kynan Song on 21/10/2024.
@@ -18,4 +18,11 @@ struct GameTest: Identifiable {
     let course: String
     let date: Date
     let scores: [ScoreTest]
+}
+
+struct GameInfo {
+    let courseName: String
+    let date: Date?
+    let id: UUID?
+    let scores: Scores?
 }

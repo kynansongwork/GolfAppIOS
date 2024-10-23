@@ -18,6 +18,7 @@ struct CourseInfoView: View {
                 Text(course.course)
                     .font(.title)
                     .padding(.vertical, 10)
+                    .multilineTextAlignment(.center)
                     .accessibilityAddTraits(.isHeader)
                 Text(course.region)
                     .font(.subheadline)

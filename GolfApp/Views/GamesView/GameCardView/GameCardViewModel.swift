@@ -17,6 +17,8 @@ protocol GameCardViewModelling: ObservableObject {
     func saveData(courseName: String,
                   date: Date,
                   scores: Scores)
+    
+    func deleteData(game: Game)
 }
 
 class GameCardViewModel: GameCardViewModelling {
@@ -38,6 +40,14 @@ class GameCardViewModel: GameCardViewModelling {
         self.fetchCourses()
     }
     
+    func fetchCourses() {
+        let data = self.networking.getMockData()
+        
+        if let data = data {
+            courses.append(contentsOf: data)
+        }
+    }
+    
     func saveData(courseName: String,
                   date: Date,
                   scores: Scores) {
@@ -55,11 +65,14 @@ class GameCardViewModel: GameCardViewModelling {
         }
     }
     
-    func fetchCourses() {
-        let data = self.networking.getMockData()
+    func deleteData(game: Game) {
+        self.context.delete(game)
         
-        if let data = data {
-            courses.append(contentsOf: data)
+        do {
+            try self.context.save()
+        } catch {
+            //TODO: Handle error
+            print("Unable to save game: \(error.localizedDescription)")
         }
     }
 }
