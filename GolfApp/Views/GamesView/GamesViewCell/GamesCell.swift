@@ -23,7 +23,7 @@ struct GamesCell: View {
                 VStack(alignment: .leading, spacing: 10) {
                     Text("Course: \(gameInfo.courseName)")
                         .multilineTextAlignment(.leading)
-                    Text("Score:")
+                    Text("Score: \(viewModel.totalScore(scores: gameInfo.scores))")
                     Text("Score to par:")
                 }
                 .padding(.vertical, 20)

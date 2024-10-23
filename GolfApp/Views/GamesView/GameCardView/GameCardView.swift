@@ -15,6 +15,8 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
     
     @State private var gameDate = Date.now
     @State private var selectedCourse: CourseModel?
+    @State private var scoreModel = GameScoreModel()
+    @State private var totalScore: Int = 0
     
     let gameData: Game?
     
@@ -59,15 +61,15 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                         Text("Score")
                                     }
                                     
-                                    ForEach(0...setCourseHoles(), id: \.self) { course in
-                                        //TODO: Don't show for 0 holes.
-                                        GameCardScoreView(courseHole: course)
+                                    ForEach(0...setCourseHoles(), id: \.self) { hole in
+                                        GameCardScoreView(courseHole: hole,
+                                                          viewModel: scoreModel)
                                     }
                                 }
                                 .padding(.horizontal, 20)
                             }
                             
-                            Text("Your total score is:")
+                            Text("Your total score is: \(totalScore)")
                         }
                     }
                 }
@@ -83,12 +85,15 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                             date: gameDate,
                                             scores: Scores(scores: [Score(hole: 1,
                                                                           par: 2,
-                                                                          score: 3)]))
+                                                                          score: totalScore)]))
                 }
                 
                 presentationMode.wrappedValue.dismiss()
             }
             .padding(.bottom, 20)
+        }
+        .onReceive(scoreModel.scores) { newScores in
+            totalScore = newScores.reduce(0) { $0 + $1.score }
         }
  
     }

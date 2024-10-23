@@ -19,6 +19,8 @@ protocol GameCardViewModelling: ObservableObject {
                   scores: Scores)
     
     func deleteData(game: Game)
+    
+    func getTotalScore(scores: [Score]) -> Int
 }
 
 class GameCardViewModel: GameCardViewModelling {
@@ -74,5 +76,9 @@ class GameCardViewModel: GameCardViewModelling {
             //TODO: Handle error
             print("Unable to save game: \(error.localizedDescription)")
         }
+    }
+    
+    func getTotalScore(scores: [Score]) -> Int {
+        return scores.reduce(0) { $0 + $1.score }
     }
 }
