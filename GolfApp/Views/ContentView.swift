@@ -19,7 +19,9 @@ struct ContentView: View {
     
     var body: some View {
         TabView {
-            CoursesMapView(viewModel: CoursesMapViewModel(), position: .automatic)
+            CoursesMapView(viewModel: CoursesMapViewModel(
+                locationManager: LocationManager()),
+                position: .automatic)
                 .tabItem {
                     Label("Find Courses", systemImage: "mappin.and.ellipse")
                 }

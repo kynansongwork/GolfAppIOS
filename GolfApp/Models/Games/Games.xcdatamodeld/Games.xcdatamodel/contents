@@ -4,6 +4,6 @@
         <attribute name="course" optional="YES" attributeType="String"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <attribute name="scores" optional="YES" attributeType="Transformable" customClassName="Scores"/>
+        <attribute name="scores" optional="YES" attributeType="Transformable" valueTransformerName="NSSecureUnarchiveFromData" customClassName="Scores"/>
     </entity>
 </model>
