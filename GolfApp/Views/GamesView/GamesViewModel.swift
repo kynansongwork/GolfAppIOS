@@ -19,6 +19,7 @@ class GamesViewModel: GamesViewModelling {
         return GameInfo(courseName: game.course ?? "",
                         date: game.date,
                         id: game.id,
+                        par: game.par,
                         scores: game.scores)
     }
 }

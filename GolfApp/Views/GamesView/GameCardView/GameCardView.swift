@@ -18,8 +18,6 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
     @State private var scoreModel = GameScoreModel()
     @State private var totalScore: Int = 0
     
-    let gameData: Game?
-    
     var body: some View {
         VStack(spacing: 0) {
             ZStack {
@@ -76,16 +74,17 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
             }
             .padding(.all, 20)
             
-            Button(gameData != nil ? "Update Game" : "Save Game") {
+            Button(viewModel.gameData != nil ? "Update Game" : "Save Game") {
 
-                if let gameData {
+                if let gameData = viewModel.gameData {
                     print("Editing game \(gameData)")
                 } else {
                     self.viewModel.saveData(courseName: selectedCourseName(),
                                             date: gameDate,
                                             scores: Scores(scores: [Score(hole: 1,
                                                                           par: 2,
-                                                                          score: totalScore)]))
+                                                                          score: totalScore)]),
+                                            par: Int32(selectedCourse?.par ?? 0))
                 }
                 
                 presentationMode.wrappedValue.dismiss()
@@ -95,7 +94,6 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
         .onReceive(scoreModel.scores) { newScores in
             totalScore = newScores.reduce(0) { $0 + $1.score }
         }
- 
     }
 }
 
@@ -104,6 +102,10 @@ extension GameCardView {
         if let selectedCourse {
             return selectedCourse.course
         } else {
+            if let gameData = viewModel.gameData {
+                return gameData.course ?? "No Course found"
+            }
+            
             return "Select a course"
         }
     }
@@ -119,7 +121,7 @@ extension GameCardView {
 
 #Preview {
     GameCardView(viewModel: GameCardViewModel(manager: .init(),
-                                              context: .init()),
-                 gameData: nil)
+                                              context: .init(),
+                                              gameData: nil))
 }
 

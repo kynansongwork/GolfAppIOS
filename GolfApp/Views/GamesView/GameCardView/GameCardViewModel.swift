@@ -11,32 +11,42 @@ import CoreData
 
 protocol GameCardViewModelling: ObservableObject {
     var courses: [CourseModel] { get set }
+    var gameData: Game? { get }
     
     func fetchCourses()
     
     func saveData(courseName: String,
                   date: Date,
-                  scores: Scores)
+                  scores: Scores,
+                  par: Int32)
     
     func deleteData(game: Game)
     
     func getTotalScore(scores: [Score]) -> Int
+    
+    func mapGameInfo(game: Game) -> GameInfo
 }
 
 class GameCardViewModel: GameCardViewModelling {
+    
     
     let manager: DatabaseManager
     let context: NSManagedObjectContext
     
     @Published var courses: [CourseModel] = []
     @Published var selectedCourse: CourseModel?
+    
+    let gameData: Game?
 
     let networking: Networking
     
     init(manager: DatabaseManager,
-         context: NSManagedObjectContext) {
+         context: NSManagedObjectContext,
+         gameData: Game?) {
         self.manager = manager
         self.context = context
+        self.gameData = gameData
+        
         self.networking = NetworkingManager(url: nil)
         
         self.fetchCourses()
@@ -52,12 +62,14 @@ class GameCardViewModel: GameCardViewModelling {
     
     func saveData(courseName: String,
                   date: Date,
-                  scores: Scores) {
+                  scores: Scores,
+                  par: Int32) {
         let game = Game(context: self.context)
         game.id = UUID()
         game.course = courseName
         game.date = date
         game.scores = scores
+        game.par = par
         
         do {
             try self.context.save()
@@ -67,6 +79,7 @@ class GameCardViewModel: GameCardViewModelling {
         }
     }
     
+    //TODO: Assign to button
     func deleteData(game: Game) {
         self.context.delete(game)
         
@@ -80,5 +93,13 @@ class GameCardViewModel: GameCardViewModelling {
     
     func getTotalScore(scores: [Score]) -> Int {
         return scores.reduce(0) { $0 + $1.score }
+    }
+    
+    func mapGameInfo(game: Game) -> GameInfo {
+        return GameInfo(courseName: game.course ?? "",
+                        date: game.date,
+                        id: game.id,
+                        par: game.par,
+                        scores: game.scores)
     }
 }

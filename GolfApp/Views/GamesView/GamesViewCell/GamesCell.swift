@@ -24,7 +24,7 @@ struct GamesCell: View {
                     Text("Course: \(gameInfo.courseName)")
                         .multilineTextAlignment(.leading)
                     Text("Score: \(viewModel.totalScore(scores: gameInfo.scores))")
-                    Text("Score to par:")
+                    Text("Score to par: \(viewModel.calculateScoreToPar(par: gameInfo.par))")
                 }
                 .padding(.vertical, 20)
                 .padding(.trailing, 20)
@@ -39,5 +39,5 @@ struct GamesCell: View {
 }
 
 #Preview {
-    GamesCell(gameInfo: GameInfo(courseName: "", date: nil, id: nil, scores: nil))
+    GamesCell(gameInfo: GameInfo(courseName: "", date: nil, id: nil, par: 0, scores: nil))
 }

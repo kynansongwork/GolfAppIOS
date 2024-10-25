@@ -27,8 +27,8 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
                     ForEach(games, id: \.self) { i in
                         NavigationLink(destination: {
                             GameCardView(viewModel: GameCardViewModel(manager: manager,
-                                                                      context: viewContext),
-                                         gameData: i)
+                                                                      context: viewContext,
+                                                                      gameData: i))
                             .padding(.all, 20)
                             
                             //TODO: Add swipe to delete.
@@ -47,8 +47,8 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
         }
         .navigationDestination(isPresented: $addGamePressed) {
             GameCardView(viewModel: GameCardViewModel(manager: manager,
-                                                      context: viewContext),
-                                                     gameData: nil)
+                                                      context: viewContext,
+                                                      gameData: nil))
         }
     }
 }

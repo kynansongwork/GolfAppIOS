@@ -24,5 +24,6 @@ struct GameInfo {
     let courseName: String
     let date: Date?
     let id: UUID?
+    let par: Int32
     let scores: Scores?
 }
