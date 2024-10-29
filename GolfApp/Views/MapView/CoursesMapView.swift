@@ -58,12 +58,3 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     }
 }
 
-#Preview {
-    let previewModel = CoursesMapViewModel(locationManager: LocationManager())
-    if #available(iOS 17.0, *) {
-        CoursesMapView(viewModel: previewModel)
-    } else {
-        // Fallback on earlier versions
-    }
-}
-

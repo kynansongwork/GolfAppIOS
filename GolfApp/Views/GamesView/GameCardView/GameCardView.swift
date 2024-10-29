@@ -44,7 +44,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                         
                         VStack(spacing: 20) {
                             
-                            Text("Course Par: \(selectedCourse?.par ?? 0)")
+                            Text("Course Par: \(setPar())")
                             
                             ScrollView(.horizontal) {
                                 HStack(alignment: .center, spacing: 0) {
@@ -110,6 +110,18 @@ extension GameCardView {
         }
     }
     
+    func setPar() -> Int {
+        if let par = selectedCourse?.par {
+            return par
+        } else {
+            if let gameData = viewModel.gameData {
+                return Int(gameData.par)
+            }
+            
+            return 0
+        }
+    }
+    
     func setCourseHoles() -> Int {
         if let index = viewModel.courses.firstIndex(where: { $0.course == selectedCourseName() }) {
             return viewModel.courses[index].holes ?? 0
@@ -117,11 +129,5 @@ extension GameCardView {
         
         return 0
     }
-}
-
-#Preview {
-    GameCardView(viewModel: GameCardViewModel(manager: .init(),
-                                              context: .init(),
-                                              gameData: nil))
 }
 

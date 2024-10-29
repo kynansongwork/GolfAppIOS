@@ -29,7 +29,6 @@ protocol GameCardViewModelling: ObservableObject {
 
 class GameCardViewModel: GameCardViewModelling {
     
-    
     let manager: DatabaseManager
     let context: NSManagedObjectContext
     
@@ -41,13 +40,14 @@ class GameCardViewModel: GameCardViewModelling {
     let networking: Networking
     
     init(manager: DatabaseManager,
+         networking: Networking,
          context: NSManagedObjectContext,
          gameData: Game?) {
         self.manager = manager
         self.context = context
         self.gameData = gameData
         
-        self.networking = NetworkingManager(url: nil)
+        self.networking = networking
         
         self.fetchCourses()
     }
@@ -64,6 +64,8 @@ class GameCardViewModel: GameCardViewModelling {
                   date: Date,
                   scores: Scores,
                   par: Int32) {
+        
+        //TODO: Move this to database manager?
         let game = Game(context: self.context)
         game.id = UUID()
         game.course = courseName

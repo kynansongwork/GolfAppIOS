@@ -29,7 +29,6 @@ class LocationManager: NSObject, ObservableObject {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         
-        //locationAuthorisedStatus = locationManager.authorizationStatus
         if locationAuthorisedStatus == .notDetermined {
             locationManager.requestWhenInUseAuthorization()
         }
@@ -67,14 +66,6 @@ extension LocationManager: CLLocationManagerDelegate {
         locationError = error
         print("Location error: \(error.localizedDescription)")
     }
-    
-//    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-//        locationAuthorisedStatus = status
-//        
-//        if status == .authorizedWhenInUse || status == .authorizedAlways {
-//            manager.startUpdatingLocation()
-//        }
-//    }
     
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         locationAuthorisedStatus = manager.authorizationStatus

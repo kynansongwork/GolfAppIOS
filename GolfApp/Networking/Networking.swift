@@ -7,13 +7,22 @@
 
 import Foundation
 
-enum APIError: Error {
-    case invalidUrl(description: String)
-}
-
 struct ResponseData: Decodable {
     var courses: [CourseModel]
 }
+
+enum APIError: Error {
+    case invalidUrl(description: String)
+    case decodingError(Error)
+    case invalidResponse
+    case networkError(Error)
+}
+
+protocol URLSessionProtocol {
+    func data(for request: URLRequest) async throws -> (Data, URLResponse)
+}
+
+extension URLSession: URLSessionProtocol {}
 
 protocol Networking {
     func getData<T: Decodable>(request: URLRequest) async throws -> T?
@@ -27,15 +36,28 @@ class NetworkingManager: Networking {
     //TODO: Make this a singleton?
     
     var apiURL: URL?
+    var urlSession: URLSessionProtocol
     
-    init(url: URL?) {
+    init(url: URL?, urlSession: URLSessionProtocol) {
         apiURL = url
+        self.urlSession = urlSession
     }
     
     func getData<T: Decodable>(request: URLRequest) async throws -> T? {
         
-        let (data, _) = try await URLSession.shared.data(for: request)
-        return try JSONDecoder().decode(T.self, from: data)
+        do {
+            let (data, response) = try await urlSession.data(for: request)
+            
+            guard let httpResponse = response as? HTTPURLResponse, (200...299).contains(httpResponse.statusCode) else {
+                        throw APIError.invalidResponse
+            }
+            
+            return try JSONDecoder().decode(T.self, from: data)
+        } catch let error as DecodingError {
+            throw APIError.decodingError(error)
+        } catch {
+            throw APIError.networkError(error)
+        }
     }
 
     func getCoursesData(request: URLRequest) async throws -> CourseModel {
@@ -57,6 +79,6 @@ class NetworkingManager: Networking {
         }
         return nil
     }
-    
 }
+
 

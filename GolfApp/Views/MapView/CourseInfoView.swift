@@ -46,6 +46,8 @@ struct CourseInfoView: View {
                 if let winterCost = course.costWinter {
                     Text("Cost winter: £\(winterCost)")
                 }
+                
+                //Show weather?
             }
         }
 

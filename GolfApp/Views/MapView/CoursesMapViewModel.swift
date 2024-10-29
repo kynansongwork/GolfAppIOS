@@ -37,8 +37,8 @@ class CoursesMapViewModel: CoursesMapViewModelling {
     
     private var subscriptions = Set<AnyCancellable>()
     
-    init(locationManager: LocationManager) {
-        self.networking = NetworkingManager(url: nil)
+    init(locationManager: LocationManager, networking: Networking) {
+        self.networking = networking
         self.locationManager = locationManager
         self.locationAuthorisation = locationManager.locationAuthorisedStatus
         self.fetchCourses()

@@ -27,6 +27,8 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
                     ForEach(games, id: \.self) { i in
                         NavigationLink(destination: {
                             GameCardView(viewModel: GameCardViewModel(manager: manager,
+                                                                      networking: NetworkingManager(url: nil,
+                                                                                                    urlSession: URLSession.shared),
                                                                       context: viewContext,
                                                                       gameData: i))
                             .padding(.all, 20)
@@ -47,6 +49,8 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
         }
         .navigationDestination(isPresented: $addGamePressed) {
             GameCardView(viewModel: GameCardViewModel(manager: manager,
+                                                      networking: NetworkingManager(url: nil,
+                                                                                    urlSession: URLSession.shared),
                                                       context: viewContext,
                                                       gameData: nil))
         }
