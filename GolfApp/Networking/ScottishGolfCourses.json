@@ -436,6 +436,48 @@
         "myRating": 0
        },
        {
+        "COURSE": "Bruntsfield Links Golfing Society",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH4 6JH",
+        "Coordinates": {
+            "lat": 55.9681082,
+            "long": -3.2839999
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6437,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 70.6,
+        "slopeRating": 119,
+        "officialRating": 87,
+        "golfshakeRating": 4.46,
+        "costSummer": 150,
+        "CostWinter": 55,
+        "courseHC": 13.50088496,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Duddingston",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH15 3QD",
+        "Coordinates": {
+            "lat": 55.937007,
+            "long": -3.1350241
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6466,
+        "HOLES": 18,
+        "PAR": 72,
+        "courseRating": 71.5,
+        "slopeRating": 139,
+        "officialRating": 125,
+        "golfshakeRating": 3.76,
+        "costSummer": 90,
+        "CostWinter": 45,
+        "courseHC": 15.73716814,
+        "myRating": 0
+       },
+       {
         "COURSE": "Gleneagles Hotel - Kings Course",
         "REGION": "Perthshire",
         "POSTCODE": "PH3 1NF",

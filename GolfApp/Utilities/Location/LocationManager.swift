@@ -43,6 +43,7 @@ class LocationManager: NSObject, ObservableObject {
             locationManager.requestWhenInUseAuthorization()
         case .authorizedAlways, .authorizedWhenInUse:
             locationManager.startUpdatingLocation()
+            self.userLocation = locationManager.location?.coordinate
         case .restricted, .denied:
             //TODO: Change this later
             print("Location permissions are denied")
