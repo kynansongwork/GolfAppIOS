@@ -498,5 +498,225 @@
         "CostWinter": 95,
         "Course HC": 17.23539823,
         "My Rating": 0
+       },
+       {
+        "COURSE": "Greenburn",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "ML7 5RJ",
+        "Coordinates": {
+            "lat": 55.823977,
+            "long": -3.701438
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6067,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 69.9,
+        "slopeRating": 125,
+        "golfshakeRating": 3.81,
+        "costSummer": 35,
+        "CostWinter": 30,
+        "Course HC": 13.50176991,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Gullane - No. 1 Course",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH31 2BB",
+        "Coordinates": {
+            "lat": 56.0338247,
+            "long": -2.8376221
+        },
+        "TYPE": "Links",
+        "YRDS": 6583,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 71.5,
+        "slopeRating": 120,
+        "officialRating": 23,
+        "golfshakeRating": 4.92,
+        "costSummer": 230,
+        "CostWinter": 115,
+        "Course HC": 14.51769912,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Gullane - No. 2 Course",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH31 2BB",
+        "Coordinates": {
+            "lat": 56.03254,
+            "long": -2.83413
+        },
+        "TYPE": "Links",
+        "YRDS": 6015,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 70.5,
+        "slopeRating": 120,
+        "officialRating": 42,
+        "golfshakeRating": 4.92,
+        "costSummer": 90,
+        "CostWinter": 60,
+        "Course HC": 13.51769912,
+        "My Rating": 7.266666667
+       },
+       {
+        "COURSE": "Gullane - No. 3 Course",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH31 2AH",
+        "Coordinates": {
+            "lat": 56.03217,
+            "long": -2.83223
+        },
+        "TYPE": "Links",
+        "YRDS": 5134,
+        "HOLES": 18,
+        "PAR": 67,
+        "courseRating": 65.9,
+        "slopeRating": 107,
+        "officialRating": 89,
+        "golfshakeRating": 4.92,
+        "costSummer": 60,
+        "CostWinter": 40,
+        "Course HC": 11.39911504,
+        "My Rating": 7.2
+       },
+       {
+        "COURSE": "Haddington",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH41 4PT",
+        "Coordinates": {
+            "lat": 55.9588451,
+            "long": -2.7550029
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6403,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 69.8,
+        "slopeRating": 111,
+        "officialRating": 156,
+        "golfshakeRating": 4.35,
+        "costSummer": 65,
+        "Course HC": 11.76637168,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Haggs Castle",
+        "REGION": "Glasgow & Clyde Valley",
+        "POSTCODE": "G41 4RD",
+        "Coordinates": {
+            "lat": 55.8392772,
+            "long": -4.3093067
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6426,
+        "HOLES": 18,
+        "PAR": 72,
+        "courseRating": 71.2,
+        "slopeRating": 134,
+        "officialRating": 114,
+        "golfshakeRating": 4.17,
+        "costSummer": 100,
+        "CostWinter": 50,
+        "Course HC": 14.85309735,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Hamilton",
+        "REGION": "Lanarkshire",
+        "POSTCODE": "ML3 7UE",
+        "Coordinates": {
+            "lat": 55.7611785,
+            "long": -4.0072097
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6452,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 69.9,
+        "slopeRating": 119,
+        "golfshakeRating": 4.09,
+        "costSummer": 60,
+        "Course HC": 12.80088496,
+        "My Rating": 6.066666667
+       },
+       {
+        "COURSE": "Harburn",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH55 8RS",
+        "Coordinates": {
+            "lat": 55.8367176,
+            "long": -3.5356026
+        },
+        "TYPE": "Heathland",
+        "YRDS": 6054,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 69.5,
+        "slopeRating": 125,
+        "golfshakeRating": 4.38,
+        "costSummer": 45,
+        "Course HC": 13.10176991,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Innerleithen",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH44 6NL",
+        "Coordinates": {
+            "lat": 55.6389463,
+            "long": -3.0555993
+        },
+        "TYPE": "Links",
+        "YRDS": 5948,
+        "HOLES": 9,
+        "PAR": 70,
+        "courseRating": 68.7,
+        "slopeRating": 113,
+        "golfshakeRating": 4.34,
+        "costSummer": 15,
+        "courseHC": 11.9,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Kilspindie",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH32 0QD",
+        "Coordinates": {
+            "lat": 56.0124211,
+            "long": -2.8727164
+        },
+        "TYPE": "Links",
+        "YRDS": 5494,
+        "HOLES": 18,
+        "PAR": 69,
+        "courseRating": 66.3,
+        "slopeRating": 111,
+        "officialRating": 46,
+        "golfshakeRating": 4.55,
+        "costSummer": 95,
+        "courseHC": 10.26637168,
+        "myRating": 0
+       },
+       {
+        "COURSE": "Kings Acre",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH23 4SQ",
+        "Coordinates": {
+            "lat": 55.8914747,
+            "long": -3.112665
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6031,
+        "HOLES": 18,
+        "PAR": 70,
+        "courseRating": 68.1,
+        "slopeRating": 122,
+        "golfshakeRating": 4.03,
+        "costSummer": 45,
+        "courseHC": 12.35132743,
+        "myRating": 0
        }
 ]

@@ -49,7 +49,7 @@ struct CourseModel: Identifiable, Equatable, Decodable {
     let courseCourseHC: Double?
     let courseMyRating, courseOfficialRating, costSummer, costWinter: Int?
     let courseHC: Double?
-    let myRating, officialRating: Int?
+    let myRating, officialRating: Double?
     let courseRating: Double?
     let slopeRating: Int?
     
