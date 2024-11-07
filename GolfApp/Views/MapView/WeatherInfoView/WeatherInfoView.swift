@@ -17,8 +17,22 @@ struct WeatherInfoView<ViewModel: WeatherInfoViewModelling>: View {
                 .fill(.white)
                 .shadow(radius: 10)
             
-            Text("The temperature at this location will be: \(viewModel.formatTemperatureData().0) to \(viewModel.formatTemperatureData().1) degreed celsius.")
-                .padding(.all, 20)
+            VStack(alignment: .leading) {
+                
+                HStack(spacing: .zero) {
+                    Image(systemName: viewModel.showCloudCoverlevels())
+                        .resizable()
+                        .frame(width: 70, height: 44)
+                        .padding(.leading, 20)
+                    
+                    Spacer()
+                }
+                
+                
+                Text("The temperature at this location will be: \(viewModel.formatTemperatureData().0) to \(viewModel.formatTemperatureData().1) degreed celsius.")
+                    .padding(.all, 20)
+            }
+            
         }
         
     }
