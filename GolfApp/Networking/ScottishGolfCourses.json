@@ -347,7 +347,7 @@
         "YRDS": 6946,
         "HOLES": 18,
         "PAR": 72,
-        "Course Rating": 73.1,
+        "courseRating": 73.1,
         "slopeRating": 123,
         "officialRating": 68,
         "golfshakeRating": 4.85,
@@ -407,9 +407,9 @@
         "YRDS": 6812,
         "HOLES": 18,
         "PAR": 72,
-        "Course Rating": 74.1,
-        "Slope Rating": 140,
-        "Official Rating": 10,
+        "courseRating": 74.1,
+        "slopeRating": 140,
+        "officialRating": 10,
         "costSummer": 500,
         "courseHC": 18.4539823,
         "myRating": 0
@@ -760,5 +760,192 @@
         "costSummer": 45,
         "courseHC": 12.35132743,
         "myRating": 0
+       },
+       {
+        "COURSE": "Whitehill House",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH22 4LQ",
+        "Coordinates": {
+            "lat": 55.8462499,
+            "long": -3.1258972
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6178,
+        "HOLES": 9,
+        "PAR": 70,
+        "courseRating": 0,
+        "slopeRating": 0,
+        "golfshakeRating": 3.86,
+        "costSummer": 465,
+        "Course HC": -70,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Whitemoss",
+        "REGION": "Perthshire",
+        "POSTCODE": "Closed",
+        "Coordinates": {
+            "lat": 56.315179,
+            "long": -3.639974
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6000,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Whiting Bay",
+        "REGION": "The Islands",
+        "POSTCODE": "KA27 8QT",
+        "Coordinates": {
+            "lat": 55.4899687,
+            "long": -5.1009712
+        },
+        "TYPE": "Parkland",
+        "YRDS": 4451,
+        "HOLES": 18,
+        "PAR": 63,
+        "courseRating": 63.2,
+        "slopeRating": 94,
+        "golfshakeRating": 4.22,
+        "costSummer": 30,
+        "Course HC": 11.18053097,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Wick",
+        "REGION": "The Scottish Highlands",
+        "POSTCODE": "KW1 4RW",
+        "Coordinates": {
+            "lat": 58.4831802,
+            "long": -3.1269011
+        },
+        "TYPE": "Links",
+        "YRDS": 6123,
+        "HOLES": 18,
+        "PAR": 69,
+        "courseRating": 69.9,
+        "slopeRating": 126,
+        "officialRating": 192,
+        "golfshakeRating": 4.13,
+        "costSummer": 60,
+        "Course HC": 15.61858407,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Wigtown and Bladnoch",
+        "REGION": "Dumfries & Galloway",
+        "POSTCODE": "DG8 9DA",
+        "Coordinates": {
+            "lat": 54.864812,
+            "long": -4.446414
+        },
+        "TYPE": "Parkland",
+        "YRDS": 5462,
+        "HOLES": 9,
+        "PAR": 67,
+        "courseRating": 67.2,
+        "slopeRating": 117,
+        "golfshakeRating": 3.3,
+        "costSummer": 22,
+        "Course HC": 13.86725664,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Wigtownshire County",
+        "REGION": "Dumfries & Galloway",
+        "POSTCODE": "DG9 9DN",
+        "Coordinates": {
+            "lat": 54.868249,
+            "long": -4.84026
+        },
+        "TYPE": "Links",
+        "YRDS": 6104,
+        "HOLES": 18,
+        "PAR": 70,
+        "courseRating": 68.3,
+        "slopeRating": 124,
+        "officialRating": 106,
+        "golfshakeRating": 3.17,
+        "costSummer": 45,
+        "CostWinter": 20,
+        "Course HC": 12.78495575,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Williamwood",
+        "REGION": "Glasgow & Clyde Valley",
+        "POSTCODE": "G44 3YR",
+        "Coordinates": {
+            "lat": 55.797299,
+            "long": -4.2736063
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6045,
+        "HOLES": 18,
+        "PAR": 69,
+        "courseRating": 69.2,
+        "slopeRating": 130,
+        "golfshakeRating": 4.21,
+        "costSummer": 45,
+        "Course HC": 15.38584071,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Windyhill",
+        "REGION": "Glasgow & Clyde Valley",
+        "POSTCODE": "G62 7HN",
+        "Coordinates": {
+            "lat": 55.9334601,
+            "long": -4.3663133
+        },
+        "TYPE": "Parkland",
+        "YRDS": 6154,
+        "HOLES": 18,
+        "PAR": 71,
+        "courseRating": 70.4,
+        "slopeRating": 119,
+        "golfshakeRating": 4.22,
+        "costSummer": 25,
+        "Course HC": 13.30088496,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Winterfield",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH42 1AU",
+        "Coordinates": {
+            "lat": 56.0036151,
+            "long": -2.5375397
+        },
+        "TYPE": "Links",
+        "YRDS": 4817,
+        "HOLES": 18,
+        "PAR": 65,
+        "courseRating": 64.1,
+        "slopeRating": 96,
+        "officialRating": 140,
+        "golfshakeRating": 3.9,
+        "costSummer": 36,
+        "Course HC": 10.31415929,
+        "My Rating": 7.466666667
+       },
+       {
+         "COURSE": "Wishaw",
+         "REGION": "Glasgow & Clyde Valley",
+         "POSTCODE": "ML2 7PH",
+         "Coordinates": {
+           "lat": 55.7791922,
+           "long": -3.9333265
+         },
+         "TYPE": "Parkland",
+         "YRDS": 5999,
+         "HOLES": 18,
+         "PAR": 69,
+         "courseRating": 69.4,
+         "slopeRating": 124,
+         "golfshakeRating": 4.2,
+         "costSummer": 35,
+         "courseHC": 14.88495575,
+         "myRating": 0
        }
 ]

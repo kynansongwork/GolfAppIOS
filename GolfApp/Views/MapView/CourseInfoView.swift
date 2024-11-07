@@ -20,27 +20,30 @@ struct CourseInfoView: View {
                     .padding(.vertical, 10)
                     .multilineTextAlignment(.center)
                     .accessibilityAddTraits(.isHeader)
+                    .padding(.horizontal, 20)
                 Text(course.region)
+                    .font(.subheadline)
+                Text(course.postcode ?? "Closed")
                     .font(.subheadline)
                 Spacer()
             }
             
             VStack(spacing: 4) {
                 HStack(spacing: 8) {
-                    Text("Rating: \(course.courseRating ?? 0)")
-                    Text("Holes: \(course.holes ?? 0)")
+                    Text("**Rating:** \(course.courseRating?.toString(to: 2) ?? 0.toString(to: 2))")
+                    Text("**Holes:** \(course.holes ?? 0)")
                 }
                 
                 HStack(spacing: 8) {
-                    Text("Size: \(course.yrds) yards")
-                    Text("Type: \(course.type)")
+                    Text("**Size:** \(course.yrds) yards")
+                    Text("**Type:** \(course.type.rawValue.capitalized)")
                 }
                 
                 
                 if let summerCost = course.costSummer {
-                    Text("Cost summer: £\(summerCost)")
+                    Text("**Cost summer:** £\(summerCost)")
                 } else {
-                    Text("Closed")
+                    Text("Closed").bold()
                 }
                 
                 if let winterCost = course.costWinter {
@@ -54,6 +57,8 @@ struct CourseInfoView: View {
     }
 }
 
+extension CourseInfoView {}
+
 #Preview {
     CourseInfoView(course: CourseModel(course: "Braid Hills",
                                        region: "Edinburgh",
@@ -63,8 +68,6 @@ struct CourseInfoView: View {
                                        yrds: 5865,
                                        holes: 18,
                                        par: nil,
-                                       courseCourseRating: 67.2,
-                                       courseSlopeRating: nil,
                                        golfshakeRating: nil,
                                        coursePrivate: nil,
                                        courseCourseHC: nil,
@@ -75,6 +78,6 @@ struct CourseInfoView: View {
                                        courseHC: nil,
                                        myRating: nil,
                                        officialRating: nil,
-                                       courseRating: nil,
+                                       courseRating: 67.2,
                                        slopeRating: nil))
 }

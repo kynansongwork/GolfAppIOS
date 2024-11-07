@@ -42,8 +42,6 @@ struct CourseModel: Identifiable, Equatable, Decodable {
     let type: CourseType
     let yrds: Int
     let holes, par: Int?
-    let courseCourseRating: Double?
-    let courseSlopeRating: Int?
     let golfshakeRating: Double?
     let coursePrivate: Bool?
     let courseCourseHC: Double?
@@ -62,8 +60,6 @@ struct CourseModel: Identifiable, Equatable, Decodable {
         case yrds = "YRDS"
         case holes = "HOLES"
         case par = "PAR"
-        case courseCourseRating = "courseRating"
-        case courseSlopeRating = "slopeRating"
         case golfshakeRating
         case coursePrivate = "Private"
         case courseCourseHC = "courseHC"
@@ -74,7 +70,7 @@ struct CourseModel: Identifiable, Equatable, Decodable {
         case courseHC = "Course HC"
         case myRating = "My Rating"
         case officialRating = "Official Rating"
-        case courseRating = "Course Rating"
-        case slopeRating = "Slope Rating"
+        case courseRating = "courseRating"
+        case slopeRating = "slopeRating"
     }
 }
