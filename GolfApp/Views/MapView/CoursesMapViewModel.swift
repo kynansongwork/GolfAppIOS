@@ -20,6 +20,7 @@ protocol CoursesMapViewModelling: ObservableObject {
     var userLocation: CLLocationCoordinate2D? { get set }
     var locationAuthorisation: CLAuthorizationStatus { get }
     var distance: CGFloat { get set }
+    var networking: Networking { get }
     
     func fetchCourses()
     func getLocation()

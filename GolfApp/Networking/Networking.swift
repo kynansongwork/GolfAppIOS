@@ -11,6 +11,10 @@ struct ResponseData: Decodable {
     var courses: [CourseModel]
 }
 
+enum SwitchEndpoints {
+    case weather
+}
+
 enum APIError: Error {
     case invalidUrl(description: String)
     case decodingError(Error)
@@ -18,17 +22,13 @@ enum APIError: Error {
     case networkError(Error)
 }
 
-protocol URLSessionProtocol {
-    func data(for request: URLRequest) async throws -> (Data, URLResponse)
-}
-
-extension URLSession: URLSessionProtocol {}
-
 protocol Networking {
     func getData<T: Decodable>(request: URLRequest) async throws -> T?
     
+    func changeApiUrl(endpoint: SwitchEndpoints)
     func getCoursesData(request: URLRequest) async throws -> CourseModel
     func getMockData() -> [CourseModel]?
+    func fetchWeather(latitude: Double, longitude: Double) async throws -> WeatherResponse?
 }
 
 class NetworkingManager: Networking {
@@ -78,6 +78,45 @@ class NetworkingManager: Networking {
             }
         }
         return nil
+    }
+    
+    func changeApiUrl(endpoint: SwitchEndpoints) {
+        switch endpoint {
+        case .weather:
+            apiURL = Endpoints.weatherEndpoint
+        }
+    }
+    
+    func fetchWeather(latitude: Double, longitude: Double) async throws -> WeatherResponse? {
+
+        changeApiUrl(endpoint: .weather)
+        
+        guard let url = apiURL else { return nil }
+        guard var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else { return nil}
+        
+        components.queryItems = [
+            URLQueryItem(name: "latitude", value: String(latitude)),
+            URLQueryItem(name: "longitude", value: String(longitude)),
+            URLQueryItem(name: "daily", value: ["temperature_2m_max",
+                                                "temperature_2m_min",
+                                                "wind_speed_10m_max",
+                                                "wind_direction_10m_dominant",
+                                                "precipitation_sum",
+                                                "precipitation_probability_max",
+                                                "cloud_cover_mean"].joined(separator: ",")),
+            URLQueryItem(name: "timezone", value: "auto")
+        ]
+        
+        guard let url = components.url else {
+            throw WeatherError.invalidURL
+        }
+        
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        guard let weather: WeatherResponse = try? await getData(request: request) else { return nil }
+        
+        return weather
     }
 }
 

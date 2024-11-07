@@ -8,76 +8,104 @@
 import SwiftUI
 import CoreLocation
 
-struct CourseInfoView: View {
+struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
     
-    let course: CourseModel
+    @ObservedObject var viewModel: ViewModel
+    
+    var courseInfo: some View {
+        VStack(spacing: 4) {
+            HStack(spacing: 8) {
+                Text("**Rating:** \(viewModel.course.courseRating?.toString(to: 2) ?? 0.toString(to: 2))")
+                Text("**Holes:** \(viewModel.course.holes ?? 0)")
+            }
+            
+            HStack(spacing: 8) {
+                Text("**Size:** \(viewModel.course.yrds) yards")
+                Text("**Type:** \(viewModel.course.type.rawValue.capitalized)")
+            }
+            
+            
+            if let summerCost = viewModel.course.costSummer {
+                Text("**Cost summer:** £\(summerCost)")
+            } else {
+                Text("Closed").bold()
+            }
+            
+            if let winterCost = viewModel.course.costWinter {
+                Text("**Cost winter:** £\(winterCost)")
+            }
+        }
+    }
     
     var body: some View {
-        ZStack() {
-            VStack(spacing: 0) {
-                Text(course.course)
+        VStack(spacing: .zero) {
+            VStack(spacing: .zero) {
+                Text(viewModel.course.course)
                     .font(.title)
                     .padding(.vertical, 10)
                     .multilineTextAlignment(.center)
                     .accessibilityAddTraits(.isHeader)
                     .padding(.horizontal, 20)
-                Text(course.region)
+                Text(viewModel.course.region)
                     .font(.subheadline)
-                Text(course.postcode ?? "Closed")
+                Text(viewModel.course.postcode ?? "Closed")
                     .font(.subheadline)
-                Spacer()
             }
+            .padding(.bottom, 20)
             
             VStack(spacing: 4) {
-                HStack(spacing: 8) {
-                    Text("**Rating:** \(course.courseRating?.toString(to: 2) ?? 0.toString(to: 2))")
-                    Text("**Holes:** \(course.holes ?? 0)")
+                courseInfo
+                    .padding(.bottom, 20)
+                
+                switch viewModel.state {
+                case .loading:
+                    ProgressView()
+                case .loaded(let weather):
+                    WeatherInfoView(viewModel: WeatherInfoViewModel(dailyWeather: weather.daily))
+                        .padding(.horizontal, 20)
+                case .error:
+                    VStack(spacing: .zero) {
+                        Text("Unable to fetch weather.")
+                        
+                        Button(action: {
+                            Task {
+                                try await viewModel.getWeatherData()
+                            }
+                        })
+                            {
+                            Text("Retry")
+                        }
+                            .buttonStyle(.bordered)
+                            .padding(.all, 10)
+                    }
+                    .padding(.vertical, 20)
                 }
-                
-                HStack(spacing: 8) {
-                    Text("**Size:** \(course.yrds) yards")
-                    Text("**Type:** \(course.type.rawValue.capitalized)")
-                }
-                
-                
-                if let summerCost = course.costSummer {
-                    Text("**Cost summer:** £\(summerCost)")
-                } else {
-                    Text("Closed").bold()
-                }
-                
-                if let winterCost = course.costWinter {
-                    Text("Cost winter: £\(winterCost)")
-                }
-                
-                //Show weather?
             }
         }
-
     }
 }
 
 extension CourseInfoView {}
 
-#Preview {
-    CourseInfoView(course: CourseModel(course: "Braid Hills",
-                                       region: "Edinburgh",
-                                       postcode: nil,
-                                       coordinates: Coordinates(latitude: 55.9160843, longitude: -3.2045417),
-                                       type: .heathland,
-                                       yrds: 5865,
-                                       holes: 18,
-                                       par: nil,
-                                       golfshakeRating: nil,
-                                       coursePrivate: nil,
-                                       courseCourseHC: nil,
-                                       courseMyRating: nil,
-                                       courseOfficialRating: nil,
-                                       costSummer: 150,
-                                       costWinter: 55,
-                                       courseHC: nil,
-                                       myRating: nil,
-                                       officialRating: nil,
-                                       courseRating: 67.2,
-                                       slopeRating: nil))
-}
+//#Preview {
+//    CourseInfoView(viewModel: CourseInfoViewModel(course: CourseModel(course: "Braid Hills",
+//                                                                      region: "Edinburgh",
+//                                                                      postcode: nil,
+//                                                                      coordinates: Coordinates(latitude: 55.9160843, longitude: -3.2045417),
+//                                                                      type: .heathland,
+//                                                                      yrds: 5865,
+//                                                                      holes: 18,
+//                                                                      par: nil,
+//                                                                      golfshakeRating: nil,
+//                                                                      coursePrivate: nil,
+//                                                                      courseCourseHC: nil,
+//                                                                      courseMyRating: nil,
+//                                                                      courseOfficialRating: nil,
+//                                                                      costSummer: 150,
+//                                                                      costWinter: 55,
+//                                                                      courseHC: nil,
+//                                                                      myRating: nil,
+//                                                                      officialRating: nil,
+//                                                                      courseRating: 67.2,
+//                                                                      slopeRating: nil), networking: <#any Networking#>)
+//}

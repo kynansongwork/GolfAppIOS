@@ -37,6 +37,20 @@
 			);
 			target = 24A3D62A2CAD8A4B00777B21 /* GolfApp */;
 		};
+		24CC003E2CDCDF750053BB66 /* Exceptions for "GolfAppTests" folder in "GolfApp" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NetworkingTests/MockNetworking.swift,
+			);
+			target = 24A3D62A2CAD8A4B00777B21 /* GolfApp */;
+		};
+		24CC00442CDCE0EE0053BB66 /* Exceptions for "GolfAppTests" folder in "GolfAppTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				NetworkingTests/MockNetworking.swift,
+			);
+			target = 24A3D63A2CAD8A4C00777B21 /* GolfAppTests */;
+		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -50,6 +64,10 @@
 		};
 		24A3D63E2CAD8A4C00777B21 /* GolfAppTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				24CC003E2CDCDF750053BB66 /* Exceptions for "GolfAppTests" folder in "GolfApp" target */,
+				24CC00442CDCE0EE0053BB66 /* Exceptions for "GolfAppTests" folder in "GolfAppTests" target */,
+			);
 			path = GolfAppTests;
 			sourceTree = "<group>";
 		};

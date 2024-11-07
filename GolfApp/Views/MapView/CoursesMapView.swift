@@ -53,7 +53,8 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
             }
             .sheet(item: $selectedCourse) { course in
                 if let selectedPlace {
-                    CourseInfoView(course: selectedPlace)
+                    CourseInfoView(viewModel: CourseInfoViewModel(course: selectedPlace,
+                                                                  networking: viewModel.networking))
                         .presentationDetents(.init([.medium]))
                 }
             }
