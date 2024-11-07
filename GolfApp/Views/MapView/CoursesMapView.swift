@@ -11,6 +11,7 @@ import MapKit
 struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     
     @ObservedObject var viewModel: ViewModel
+    
     @State var position: MapCameraPosition = .automatic
     @State var selectedCourse: String?
     
@@ -23,37 +24,51 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     
     var body: some View {
 
-        Map(position: $position,
-            selection: $selectedCourse) {
-            
-            // Markers to show courses across Scotland.
-            //TODO: Will need filtering.
-            ForEach(viewModel.courses) { course in
-                Marker(course.course, coordinate: CLLocationCoordinate2D(
-                    latitude: course.coordinates.latitude,
-                    longitude: course.coordinates.longitude))
-                .tag(course.course)
+        ZStack {
+            Map(position: $position,
+                selection: $selectedCourse) {
+                
+                // Markers to show courses across Scotland.
+                //TODO: Will need filtering.
+                ForEach(viewModel.courses) { course in
+                    Marker(course.course, coordinate: CLLocationCoordinate2D(
+                        latitude: course.coordinates.latitude,
+                        longitude: course.coordinates.longitude))
+                    .tag(course.course)
+                }
+                
+                //Showing user location
+                if viewModel.locationAuthorisation == .authorizedAlways || viewModel.locationAuthorisation == .authorizedWhenInUse {
+                    UserAnnotation()
+                }
+                
+            }
+            .onAppear {
+                viewModel.getLocation()
+            }
+            .mapStyle(MapStyle.standard(elevation: MapStyle.Elevation.realistic))
+            .mapControls {
+                MapUserLocationButton()
+                MapCompass()
+            }
+            .sheet(item: $selectedCourse) { course in
+                if let selectedPlace {
+                    CourseInfoView(course: selectedPlace)
+                        .presentationDetents(.init([.medium]))
+                }
             }
             
-            //Showing user location
-            if viewModel.locationAuthorisation == .authorizedAlways || viewModel.locationAuthorisation == .authorizedWhenInUse {
-                UserAnnotation()
+            VStack(spacing: .zero) {
+                Spacer()
+                Slider(value: $viewModel.distance,
+                       in: 10000...300000,
+                       step: 10000,
+                       minimumValueLabel: Text("Nearby"),
+                       maximumValueLabel: Text("All")
+                ) {}
+                .padding(.all, 20)
             }
-            
-        }
-        .onAppear {
-            viewModel.getLocation()
-        }
-        .mapStyle(MapStyle.standard(elevation: MapStyle.Elevation.realistic))
-        .mapControls {
-            MapUserLocationButton()
-            MapCompass()
-        }
-        .sheet(item: $selectedCourse) { course in
-            if let selectedPlace {
-                CourseInfoView(course: selectedPlace)
-                    .presentationDetents(.init([.medium]))
-            }
+
         }
     }
 }

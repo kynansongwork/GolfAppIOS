@@ -14,22 +14,16 @@ enum MapViewState: Equatable {
     case error
 }
 
-enum CourseRange: Int, Equatable {
-    case nearby = 10000
-    case close = 50000
-    case medium = 100000
-    case far = 400000
-}
-
 protocol CoursesMapViewModelling: ObservableObject {
     var state: MapViewState { get }
     var courses: [CourseModel] { get set }
     var userLocation: CLLocationCoordinate2D? { get set }
     var locationAuthorisation: CLAuthorizationStatus { get }
+    var distance: CGFloat { get set }
     
     func fetchCourses()
     func getLocation()
-    func distanceFromUser(filter: CourseRange)
+    func distanceFromUser(filter: CGFloat)
 }
 
 class CoursesMapViewModel: CoursesMapViewModelling {
@@ -37,8 +31,14 @@ class CoursesMapViewModel: CoursesMapViewModelling {
     @Published var courses: [CourseModel] = []
     @Published var userLocation: CLLocationCoordinate2D?
     @Published var locationAuthorisation: CLAuthorizationStatus
+    @Published var distance: CGFloat = 10000 {
+        didSet {
+            self.distanceFromUser(filter: distance)
+        }
+    }
     
     private let locationManager: LocationManager
+    private var allCourses: [CourseModel] = []
     
     var state: MapViewState = .loading
     var networking: Networking
@@ -54,7 +54,7 @@ class CoursesMapViewModel: CoursesMapViewModelling {
         bindings()
         self.locationManager.requestLocation()
         
-        self.distanceFromUser(filter: .nearby)
+        self.distanceFromUser(filter: 10000)
     }
     
     func bindings() {
@@ -76,14 +76,11 @@ class CoursesMapViewModel: CoursesMapViewModelling {
         
         if let data = data {
             courses.append(contentsOf: data)
+            allCourses = courses
         }
     }
     
-    func filterCourses() {}
-    
-    func distanceFromUser(filter: CourseRange) {
-        
-        print("The user location is \(locationManager.userLocation)")
+    func distanceFromUser(filter: CGFloat) {
         
         var filteredCourses: [CourseModel] = []
         
@@ -91,13 +88,13 @@ class CoursesMapViewModel: CoursesMapViewModelling {
         
         let user = CLLocation(latitude: userLocation.latitude, longitude: userLocation.longitude)
         
-        for course in courses {
+        for course in allCourses {
             
             let location = CLLocation(latitude: course.coordinates.latitude, longitude: course.coordinates.longitude)
             
             let distanceMetres = user.distance(from: location)
             
-            if Int(distanceMetres.rounded()) < filter.rawValue {
+            if CGFloat(distanceMetres.rounded()) < filter {
                 filteredCourses.append(course)
                 print("\(course.course) is \(distanceMetres) from the user")
             }
