@@ -93,6 +93,8 @@ class GameCardViewModel: GameCardViewModelling {
         }
     }
     
+    func updateData(game: Game) {}
+    
     func getTotalScore(scores: [Score]) -> Int {
         return scores.reduce(0) { $0 + $1.score }
     }
