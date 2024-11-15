@@ -99,6 +99,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                 presentationMode.wrappedValue.dismiss()
             }
             .padding(.bottom, 20)
+            .disabled(disableSaveButton)
         }
         .onReceive(scoreModel.scores) { newScores in
             totalScore = newScores.reduce(0) { $0 + $1.score }
@@ -107,6 +108,17 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
 }
 
 extension GameCardView {
+    
+    var disableSaveButton: Bool {
+        if selectedCourse == nil && viewModel.gameData != nil {
+            return false
+        } else if selectedCourse != nil {
+            return false
+        } else {
+            return true
+        }
+    }
+    
     func selectedCourseName() -> String {
         if let selectedCourse {
             return selectedCourse.course

@@ -21,15 +21,15 @@ struct GamesCell: View {
             HStack(alignment: .top, spacing: .zero) {
                 
                 VStack(alignment: .leading, spacing: 10) {
-                    Text("Course: \(gameInfo.courseName)")
+                    InfoRow(message: "Course:", data: gameInfo.courseName)
                         .multilineTextAlignment(.leading)
-                    Text("Score: \(viewModel.totalScore(scores: gameInfo.scores))")
-                    Text("Score to par: \(viewModel.calculateScoreToPar(par: gameInfo.par))")
+                    InfoRow(message: "Score:", data: String(viewModel.totalScore(scores: gameInfo.scores)))
+                    InfoRow(message: "Score to par:", data: String(viewModel.calculateScoreToPar(par: gameInfo.par)))
                 }
                 .padding(.vertical, 20)
                 .padding(.trailing, 20)
                 
-                Text("Date: \(viewModel.formatGameDate(gameInfo.date))")
+                InfoRow(message: "Date:", data: String(viewModel.formatGameDate(gameInfo.date)))
                     .padding(.top, 20)
             }
             .padding(.horizontal, 20)

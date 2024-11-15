@@ -15,24 +15,24 @@ struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
     var courseInfo: some View {
         VStack(spacing: 4) {
             HStack(spacing: 8) {
-                infoRow(message: "Rating", data: viewModel.course.courseRating?.toString(to: 2) ?? 0.toString(to: 2))
-                infoRow(message: "Holes", data: String(viewModel.course.holes ?? 0))
+                InfoRow(message: "Rating:", data: viewModel.course.courseRating?.toString(to: 2) ?? 0.toString(to: 2))
+                InfoRow(message: "Holes:", data: String(viewModel.course.holes ?? 0))
             }
             
             HStack(spacing: 8) {
-                infoRow(message: "Size", data: String(viewModel.course.yrds) + "yards")
-                infoRow(message: "Type", data: viewModel.course.type.rawValue.capitalized)
+                InfoRow(message: "Size:", data: String(viewModel.course.yrds) + "yards")
+                InfoRow(message: "Type:", data: viewModel.course.type.rawValue.capitalized)
             }
             
             
             if let summerCost = viewModel.course.costSummer {
-                infoRow(message: "Cost Summer", data: "£\(summerCost)")
+                InfoRow(message: "Cost Summer:", data: "£\(summerCost)")
             } else {
                 Text("Closed").bold()
             }
             
             if let winterCost = viewModel.course.costWinter {
-                infoRow(message: "Cost Winter", data: "£\(winterCost)")
+                InfoRow(message: "Cost Winter:", data: "£\(winterCost)")
             }
         }
     }
@@ -85,16 +85,7 @@ struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
     }
 }
 
-extension CourseInfoView {
-    
-    func infoRow(message: String, data: String) -> some View {
-        HStack(alignment: .center, spacing: 4) {
-            Text(message)
-                .bold()
-            Text(data)
-        }
-    }
-}
+extension CourseInfoView {}
 
 //#Preview {
 //    CourseInfoView(viewModel: CourseInfoViewModel(course: CourseModel(course: "Braid Hills",
