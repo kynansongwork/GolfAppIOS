@@ -97,7 +97,7 @@ class CoursesMapViewModel: CoursesMapViewModelling {
             
             if CGFloat(distanceMetres.rounded()) < filter {
                 filteredCourses.append(course)
-                print("\(course.course) is \(distanceMetres) from the user")
+                //print("\(course.course) is \(distanceMetres) from the user")
             }
         }
         

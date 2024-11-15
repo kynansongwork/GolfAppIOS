@@ -20,7 +20,7 @@ struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
             }
             
             HStack(spacing: 8) {
-                InfoRow(message: "Size:", data: String(viewModel.course.yrds) + "yards")
+                InfoRow(message: "Size:", data: String(viewModel.course.yrds) + " yards")
                 InfoRow(message: "Type:", data: viewModel.course.type.rawValue.capitalized)
             }
             

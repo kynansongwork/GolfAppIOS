@@ -60,17 +60,23 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                     }
                                     
                                     ForEach(1...setCourseHoles(), id: \.self) { hole in
-                                        
-                                        if let game = viewModel.gameData, let gameData = game.scores?.scores.first {
-                                            GameCardScoreView(score: String(gameData.score),
-                                                              par: String(gameData.par),
-                                                              courseHole: hole,
-                                                              viewModel: scoreModel)
+                                        //TODO: Issue with range here, maybe check if it exists
+                                        if let game = viewModel.gameData?.scores {
+                                            
+                                            if game.scores.contains(where: { $0.hole == hole }) {
+                                                GameCardScoreView(score: String(game.scores[hole - 1].score),
+                                                                  par: String(game.scores[hole - 1].par),
+                                                                  courseHole: hole,
+                                                                  viewModel: scoreModel)
+                                            } else {
+                                                GameCardScoreView(courseHole: hole,
+                                                                  viewModel: scoreModel)
+                                            }
+                                            
                                         } else {
                                             GameCardScoreView(courseHole: hole,
                                                               viewModel: scoreModel)
                                         }
-                                        
                                     }
                                 }
                                 .padding(.horizontal, 20)
@@ -90,9 +96,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                 } else {
                     self.viewModel.saveData(courseName: selectedCourseName(),
                                             date: gameDate,
-                                            scores: Scores(scores: [Score(hole: 1,
-                                                                          par: 2,
-                                                                          score: totalScore)]),
+                                            scores: Scores(scores: scoreModel.scores.value),
                                             par: Int32(selectedCourse?.par ?? 0))
                 }
                 
