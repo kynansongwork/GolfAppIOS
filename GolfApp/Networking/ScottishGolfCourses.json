@@ -786,7 +786,8 @@
         "golfshakeRating": 4.81,
         "costSummer": 33,
         "Course HC": 13.20088496,
-        "My Rating": 0
+        "My Rating": 0,
+        "website": "https://www.libertongc.co.uk/"
        },
        {
         "COURSE": "Lilliardsedge",
@@ -805,7 +806,8 @@
         "golfshakeRating": 3.76,
         "costSummer": 25,
         "courseHC": -70,
-        "myRating": 0
+        "myRating": 0,
+        "website": "https://lilliardsedgepark.co.uk/golf-course/"
        },
        {
         "COURSE": "Whitehill House",

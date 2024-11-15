@@ -29,6 +29,8 @@ class WeatherInfoViewModel: WeatherInfoViewModelling {
     }
     
     func showWeather() -> String {
+        //TODO: Add snow at some point
+        
         if dailyWeather.isSunnyToday {
             return "sunny"
         } else if dailyWeather.precipitationProbability[0] > 50 {
@@ -38,7 +40,7 @@ class WeatherInfoViewModel: WeatherInfoViewModelling {
         }
     }
     
-    func showCloudCoverlevels() -> String {
+    private func showCloudCoverlevels() -> String {
         guard let cloudCover = dailyWeather.cloudCover.first else {
             return "errorTriangle"
         }

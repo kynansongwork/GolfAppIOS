@@ -48,30 +48,14 @@ struct DailyWeather: Codable {
         case cloudCover = "cloud_cover_mean"
     }
     
-    //From Claude
     func isSunny(forDay index: Int) -> Bool {
         guard index < cloudCover.count else { return false }
         
-        // Consider it sunny if cloud cover is less than 30% and precipitation probability is low
+        // If cloud cover is less than 30% and precipitation probability is low.
         let isLowCloudCover = cloudCover[index] < 30
         let isLowPrecipitation = precipitationProbability[index] < 20
         
         return isLowCloudCover && isLowPrecipitation
-    }
-    
-    // Helper to get weather description
-    func getWeatherDescription(forDay index: Int) -> String {
-        guard index < cloudCover.count else { return "Unknown" }
-        
-        if isSunny(forDay: index) {
-            return "Sunny"
-        } else if precipitationProbability[index] > 50 {
-            return "Rainy"
-        } else if cloudCover[index] >= 70 {
-            return "Cloudy"
-        } else {
-            return "Partly Cloudy"
-        }
     }
     
     // Helper to get the current day's data
