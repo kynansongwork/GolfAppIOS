@@ -40,7 +40,7 @@ class WeatherInfoViewModel: WeatherInfoViewModelling {
     
     func showCloudCoverlevels() -> String {
         guard let cloudCover = dailyWeather.cloudCover.first else {
-            return "questionmark.diamond"
+            return "errorTriangle"
         }
         
         //TODO: Expand to include rain etc later
