@@ -50,6 +50,7 @@ struct CourseModel: Identifiable, Equatable, Decodable {
     let myRating, officialRating: Double?
     let courseRating: Double?
     let slopeRating: Int?
+    let website: String?
     
     enum CodingKeys: String, CodingKey {
         case course = "COURSE"
@@ -72,5 +73,6 @@ struct CourseModel: Identifiable, Equatable, Decodable {
         case officialRating = "Official Rating"
         case courseRating = "courseRating"
         case slopeRating = "slopeRating"
+        case website = "website"
     }
 }

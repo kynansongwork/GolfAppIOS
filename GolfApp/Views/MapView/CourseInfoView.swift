@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import CoreLocation
+import Lottie
 
 struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
     
@@ -34,6 +34,18 @@ struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
             if let winterCost = viewModel.course.costWinter {
                 InfoRow(message: "Cost Winter:", data: "£\(winterCost)")
             }
+            
+            if let website = viewModel.course.website {
+                HStack(alignment: .center, spacing: 4) {
+                    LottieView(animation: .named("golfer")).playing(loopMode: .loop)
+                        .resizable()
+                        .frame(width: 44, height: 44)
+                    
+                    Link("Learn more", destination: URL(string: website)!)
+                        .bold()
+                        .tint(.purple)
+                }
+            }
         }
     }
     
@@ -51,7 +63,7 @@ struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
                 Text(viewModel.course.postcode ?? "Closed")
                     .font(.subheadline)
             }
-            .padding(.bottom, 20)
+            .padding(.bottom, 10)
             
             VStack(spacing: 4) {
                 courseInfo

@@ -69,7 +69,7 @@ class MockNetworking: Networking {
     func changeApiUrl(endpoint: SwitchEndpoints) {}
     
     func getCoursesData(request: URLRequest) async throws -> CourseModel {
-        return CourseModel(course: "", region: "", postcode: "", coordinates: Coordinates(latitude: 1, longitude: 1), type: .heathland, yrds: 1, holes: 1, par: 1, golfshakeRating: 2, coursePrivate: false, courseCourseHC: 1, courseMyRating: 1, courseOfficialRating: 1, costSummer: 1, costWinter: 1, courseHC: 1, myRating: 1, officialRating: 1, courseRating: 1, slopeRating: 1)
+        return CourseModel(course: "", region: "", postcode: "", coordinates: Coordinates(latitude: 1, longitude: 1), type: .heathland, yrds: 1, holes: 1, par: 1, golfshakeRating: 2, coursePrivate: false, courseCourseHC: 1, courseMyRating: 1, courseOfficialRating: 1, costSummer: 1, costWinter: 1, courseHC: 1, myRating: 1, officialRating: 1, courseRating: 1, slopeRating: 1, website: "")
     }
     
     func getMockData() -> [CourseModel]? {

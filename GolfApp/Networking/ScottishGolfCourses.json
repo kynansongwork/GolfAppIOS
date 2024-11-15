@@ -16,7 +16,8 @@
       "golfshakeRating": 4.48,
       "Private": true,
       "courseHC": 12.44690265,
-      "myRating": 0
+      "myRating": 0,
+      "website": "https://kippielodge.co.uk/"
     },
     {
       "COURSE": "Aberdour",
@@ -36,7 +37,8 @@
       "golfshakeRating": 4.45,
       "costSummer": 65,
       "courseHC": 12.55044248,
-      "myRating": 0
+      "myRating": 0,
+      "website": "https://www.aberdourgolfclub.co.uk/"
     },
     {
       "COURSE": "Aberfeldy",
@@ -55,7 +57,8 @@
       "golfshakeRating": 2.73,
       "costSummer": 20,
       "courseHC": 11.48318584,
-      "myRating": 0
+      "myRating": 0,
+      "website": "https://www.aberfeldy-golfclub.co.uk/"
     },
     {
       "COURSE": "Aberfoyle",
@@ -74,7 +77,8 @@
       "golfshakeRating": 4.43,
       "costSummer": 35,
       "courseHC": 14.31769912,
-      "myRating": 0
+      "myRating": 0,
+      "website": "https://www.aberfoylegolf.co.uk/"
     },
     {
       "COURSE": "Abernethy",
@@ -412,7 +416,8 @@
         "officialRating": 10,
         "costSummer": 500,
         "courseHC": 18.4539823,
-        "myRating": 0
+        "myRating": 0,
+        "website": "https://www.ardfin.com/"
        },
        {
         "COURSE": "Braid Hills",
@@ -433,7 +438,8 @@
         "costSummer": 150,
         "CostWinter": 55,
         "courseHC": 8.815929204,
-        "myRating": 0
+        "myRating": 0,
+        "website": "https://www.edinburghleisure.co.uk/venues/braid-hills-golf-course"
        },
        {
         "COURSE": "Bruntsfield Links Golfing Society",
@@ -454,7 +460,8 @@
         "costSummer": 150,
         "CostWinter": 55,
         "courseHC": 13.50088496,
-        "myRating": 0
+        "myRating": 0,
+        "website": "https://www.bruntsfieldlinks.co.uk/"
        },
        {
         "COURSE": "Duddingston",
@@ -475,7 +482,8 @@
         "costSummer": 90,
         "CostWinter": 45,
         "courseHC": 15.73716814,
-        "myRating": 0
+        "myRating": 0,
+        "website": "https://www.duddingstongolfclub.co.uk/"
        },
        {
         "COURSE": "Gleneagles Hotel - Kings Course",
@@ -762,6 +770,44 @@
         "myRating": 0
        },
        {
+        "COURSE": "Liberton",
+        "REGION": "Edinburgh & the Lothians",
+        "POSTCODE": "EH16 6AJ",
+        "Coordinates": {
+            "lat": 55.9189854,
+            "long": -3.1475657
+        },
+        "TYPE": "Parkland",
+        "YRDS": 5344,
+        "HOLES": 18,
+        "PAR": 67,
+        "courseRating": 66.3,
+        "slopeRating": 119,
+        "golfshakeRating": 4.81,
+        "costSummer": 33,
+        "Course HC": 13.20088496,
+        "My Rating": 0
+       },
+       {
+        "COURSE": "Lilliardsedge",
+        "REGION": "The Scottish Borders",
+        "POSTCODE": "TD8 6TZ",
+        "Coordinates": {
+            "lat": 55.5300344,
+            "long": -2.6029421
+        },
+        "TYPE": "Parkland",
+        "YRDS": 5299,
+        "HOLES": 9,
+        "PAR": 70,
+        "courseRating": 0.0,
+        "slopeRating": 0,
+        "golfshakeRating": 3.76,
+        "costSummer": 25,
+        "courseHC": -70,
+        "myRating": 0
+       },
+       {
         "COURSE": "Whitehill House",
         "REGION": "Edinburgh & the Lothians",
         "POSTCODE": "EH22 4LQ",
@@ -848,7 +894,8 @@
         "golfshakeRating": 3.3,
         "costSummer": 22,
         "Course HC": 13.86725664,
-        "My Rating": 0
+        "My Rating": 0,
+        "website": "https://www.southofscotlandgolfers.com/wigtown-bladnoch/"
        },
        {
         "COURSE": "Wigtownshire County",
@@ -869,7 +916,8 @@
         "costSummer": 45,
         "CostWinter": 20,
         "Course HC": 12.78495575,
-        "My Rating": 0
+        "My Rating": 0,
+        "website": "https://wigtownshirecountygolfclub.com/"
        },
        {
         "COURSE": "Williamwood",
@@ -888,7 +936,8 @@
         "golfshakeRating": 4.21,
         "costSummer": 45,
         "Course HC": 15.38584071,
-        "My Rating": 0
+        "My Rating": 0,
+        "website": "https://www.williamwoodgc.co.uk/"
        },
        {
         "COURSE": "Windyhill",
@@ -907,7 +956,8 @@
         "golfshakeRating": 4.22,
         "costSummer": 25,
         "Course HC": 13.30088496,
-        "My Rating": 0
+        "My Rating": 0,
+        "website": "https://windyhillgolfclub.co.uk/"
        },
        {
         "COURSE": "Winterfield",
@@ -927,7 +977,8 @@
         "golfshakeRating": 3.9,
         "costSummer": 36,
         "Course HC": 10.31415929,
-        "My Rating": 7.466666667
+        "My Rating": 7.466666667,
+        "webiste": "https://www.winterfieldgc.com/"
        },
        {
          "COURSE": "Wishaw",
@@ -946,6 +997,7 @@
          "golfshakeRating": 4.2,
          "costSummer": 35,
          "courseHC": 14.88495575,
-         "myRating": 0
+         "myRating": 0,
+         "website": "https://www.wishawgolfclub.com/"
        }
 ]
