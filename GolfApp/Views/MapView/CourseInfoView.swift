@@ -15,24 +15,24 @@ struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
     var courseInfo: some View {
         VStack(spacing: 4) {
             HStack(spacing: 8) {
-                Text("**Rating:** \(viewModel.course.courseRating?.toString(to: 2) ?? 0.toString(to: 2))")
-                Text("**Holes:** \(viewModel.course.holes ?? 0)")
+                infoRow(message: "Rating", data: viewModel.course.courseRating?.toString(to: 2) ?? 0.toString(to: 2))
+                infoRow(message: "Holes", data: String(viewModel.course.holes ?? 0))
             }
             
             HStack(spacing: 8) {
-                Text("**Size:** \(viewModel.course.yrds) yards")
-                Text("**Type:** \(viewModel.course.type.rawValue.capitalized)")
+                infoRow(message: "Size", data: String(viewModel.course.yrds) + "yards")
+                infoRow(message: "Type", data: viewModel.course.type.rawValue.capitalized)
             }
             
             
             if let summerCost = viewModel.course.costSummer {
-                Text("**Cost summer:** £\(summerCost)")
+                infoRow(message: "Cost Summer", data: "£\(summerCost)")
             } else {
                 Text("Closed").bold()
             }
             
             if let winterCost = viewModel.course.costWinter {
-                Text("**Cost winter:** £\(winterCost)")
+                infoRow(message: "Cost Winter", data: "£\(winterCost)")
             }
         }
     }
@@ -85,7 +85,16 @@ struct CourseInfoView<ViewModel: CourseInfoViewModelling>: View {
     }
 }
 
-extension CourseInfoView {}
+extension CourseInfoView {
+    
+    func infoRow(message: String, data: String) -> some View {
+        HStack(alignment: .center, spacing: 4) {
+            Text(message)
+                .bold()
+            Text(data)
+        }
+    }
+}
 
 //#Preview {
 //    CourseInfoView(viewModel: CourseInfoViewModel(course: CourseModel(course: "Braid Hills",

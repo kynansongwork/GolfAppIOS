@@ -137,6 +137,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				240B0FBB2CE751E700E3E9F2 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				24A3D62D2CAD8A4B00777B21 /* GolfApp */,
@@ -226,6 +227,9 @@
 			);
 			mainGroup = 24A3D6222CAD8A4B00777B21;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				240B0FB92CE7518900E3E9F2 /* XCRemoteSwiftPackageReference "lottie-spm" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 24A3D62C2CAD8A4B00777B21 /* Products */;
 			projectDirPath = "";
@@ -287,6 +291,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		240B0FBB2CE751E700E3E9F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 240B0FBA2CE751E700E3E9F2 /* Lottie */;
+		};
 		24A3D63D2CAD8A4C00777B21 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 24A3D62A2CAD8A4B00777B21 /* GolfApp */;
@@ -591,6 +599,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		240B0FB92CE7518900E3E9F2 /* XCRemoteSwiftPackageReference "lottie-spm" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-spm.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		240B0FBA2CE751E700E3E9F2 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 240B0FB92CE7518900E3E9F2 /* XCRemoteSwiftPackageReference "lottie-spm" */;
+			productName = Lottie;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 24A3D6232CAD8A4B00777B21 /* Project object */;
 }

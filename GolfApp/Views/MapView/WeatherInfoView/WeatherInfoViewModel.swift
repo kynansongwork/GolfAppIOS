@@ -9,7 +9,7 @@ import Foundation
 
 protocol WeatherInfoViewModelling: ObservableObject {
     func formatTemperatureData() -> (String, String)
-    func showCloudCoverlevels() -> String
+    func showWeather() -> String
 }
 
 class WeatherInfoViewModel: WeatherInfoViewModelling {
@@ -28,6 +28,16 @@ class WeatherInfoViewModel: WeatherInfoViewModelling {
         return (minTemp.toString(to: 1), maxTemp.toString(to: 1))
     }
     
+    func showWeather() -> String {
+        if dailyWeather.isSunnyToday {
+            return "sunny"
+        } else if dailyWeather.precipitationProbability[0] > 50 {
+            return "rain"
+        } else {
+            return showCloudCoverlevels()
+        }
+    }
+    
     func showCloudCoverlevels() -> String {
         guard let cloudCover = dailyWeather.cloudCover.first else {
             return "questionmark.diamond"
@@ -35,22 +45,20 @@ class WeatherInfoViewModel: WeatherInfoViewModelling {
         
         //TODO: Expand to include rain etc later
         switch cloudCover {
-            case 0...10:
-                return "sun.max"
-            case 11...50:
+            case 0...50:
             //Low
-                return "cloud.sun"
+                return "cloudSun"
             case 26...50:
             //Mid
-                return "cloud.sun.fill"
+                return "hiddenSunCloud"
             case 51...75:
             //High
-                return "icloud"
+                return "cloudy"
             case 76...100:
             //Full cover
-                return "icloud.fill"
+                return "cloudMist"
         default:
-            return "questionmark.diamond"
+            return "cloudy"
         }
     }
 }
