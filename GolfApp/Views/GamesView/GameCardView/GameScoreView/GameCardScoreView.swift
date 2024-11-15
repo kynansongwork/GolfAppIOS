@@ -42,6 +42,13 @@ struct GameCardScoreView<ViewModel: GameScoreModeling>: View {
             .frame(width: 40)
             .keyboardType(.numberPad)
             .padding(.leading, 30)
+            .onAppear {
+                if score != "" {
+                    viewModel.updateScore(hole: courseHole,
+                                          newScore: score,
+                                          newPar: par)
+                }
+            }
         }
     }
 }

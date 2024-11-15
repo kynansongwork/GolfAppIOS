@@ -59,9 +59,18 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                         Text("Score")
                                     }
                                     
-                                    ForEach(0...setCourseHoles(), id: \.self) { hole in
-                                        GameCardScoreView(courseHole: hole,
-                                                          viewModel: scoreModel)
+                                    ForEach(1...setCourseHoles(), id: \.self) { hole in
+                                        
+                                        if let game = viewModel.gameData, let gameData = game.scores?.scores.first {
+                                            GameCardScoreView(score: String(gameData.score),
+                                                              par: String(gameData.par),
+                                                              courseHole: hole,
+                                                              viewModel: scoreModel)
+                                        } else {
+                                            GameCardScoreView(courseHole: hole,
+                                                              viewModel: scoreModel)
+                                        }
+                                        
                                     }
                                 }
                                 .padding(.horizontal, 20)
@@ -124,10 +133,10 @@ extension GameCardView {
     
     func setCourseHoles() -> Int {
         if let index = viewModel.courses.firstIndex(where: { $0.course == selectedCourseName() }) {
-            return viewModel.courses[index].holes ?? 0
+            return viewModel.courses[index].holes ?? 1
         }
         
-        return 0
+        return 1
     }
 }
 

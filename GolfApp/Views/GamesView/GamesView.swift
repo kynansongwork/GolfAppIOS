@@ -24,18 +24,18 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
         NavigationStack {
             VStack {
                 ScrollView(.vertical) {
-                    ForEach(games, id: \.self) { i in
+                    ForEach(games, id: \.self) { game in
                         NavigationLink(destination: {
                             GameCardView(viewModel: GameCardViewModel(manager: manager,
                                                                       networking: NetworkingManager(url: nil,
                                                                                                     urlSession: URLSession.shared),
                                                                       context: viewContext,
-                                                                      gameData: i))
+                                                                      gameData: game))
                             .padding(.all, 20)
                             
                             //TODO: Add swipe to delete.
                         }) {
-                            GamesCell(gameInfo: viewModel.mapGameInfo(game: i))
+                            GamesCell(gameInfo: viewModel.mapGameInfo(game: game))
                                 .padding(.all, 10)
                         }
                     }

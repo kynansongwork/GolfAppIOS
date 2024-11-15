@@ -18,7 +18,7 @@ protocol GameScoreModeling: ObservableObject {
 
 //Using Claude here for this.
 class GameScoreModel: GameScoreModeling {
-    //@Published var scores: [Score] = []
+    
     let scores = CurrentValueSubject<[Score], Never>([])
     private var subscriptions = Set<AnyCancellable>()
     

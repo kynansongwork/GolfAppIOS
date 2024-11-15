@@ -13,9 +13,10 @@ struct WeatherInfoView<ViewModel: WeatherInfoViewModelling>: View {
     @ObservedObject var viewModel: ViewModel
     
     var body: some View {
-        ZStack {
+        ZStack(alignment: .center) {
             RoundedRectangle(cornerRadius: 25)
-                .fill(.white)
+                .fill(.blue)
+                .opacity(0.3)
                 .shadow(radius: 10)
             
             VStack(alignment: .center) {
@@ -37,11 +38,10 @@ struct WeatherInfoView<ViewModel: WeatherInfoViewModelling>: View {
                     
                     temperatureView(level: "High", temperature: viewModel.formatTemperatureData().1)
                 }
-                .padding(.top, 20)
+                .padding(.vertical, 20)
             }
-            
         }
-        
+        .frame(height: 120)
     }
 }
 
