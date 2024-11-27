@@ -98,7 +98,8 @@
       "golfshakeRating": 4.3,
       "costSummer": 35,
       "courseHC": 12.63274336,
-      "myRating": 0
+      "myRating": 0,
+      "website": "https://www.abernethygolfclub.com/"
     },
     {
       "COURSE": "Aboyne",
@@ -877,7 +878,8 @@
         "golfshakeRating": 4.13,
         "costSummer": 60,
         "Course HC": 15.61858407,
-        "My Rating": 0
+        "My Rating": 0,
+        "website": "https://www.wickgolfclub.org.uk/"
        },
        {
         "COURSE": "Wigtown and Bladnoch",
