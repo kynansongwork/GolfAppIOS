@@ -92,8 +92,11 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
             Button(viewModel.gameData != nil ? "Update Game" : "Save Game") {
 
                 if let gameData = viewModel.gameData {
-                    //TODO: Update game data
-                    print("Editing game \(gameData)")
+                    self.viewModel.updateData(game: gameData,
+                                              courseName: selectedCourseName(),
+                                              date: gameDate,
+                                              scores: Scores(scores: scoreModel.scores.value),
+                                              par: Int32(selectedCourse?.par ?? 0))
                 } else {
                     self.viewModel.saveData(courseName: selectedCourseName(),
                                             date: gameDate,

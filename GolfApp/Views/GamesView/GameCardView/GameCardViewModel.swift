@@ -20,6 +20,12 @@ protocol GameCardViewModelling: ObservableObject {
                   scores: Scores,
                   par: Int32)
     
+    func updateData(game: Game,
+                    courseName: String,
+                    date: Date,
+                    scores: Scores,
+                    par: Int32)
+    
     func deleteData(game: Game)
     
     func getTotalScore(scores: [Score]) -> Int
@@ -30,7 +36,6 @@ protocol GameCardViewModelling: ObservableObject {
 class GameCardViewModel: GameCardViewModelling {
     
     let manager: DatabaseManager
-    let context: NSManagedObjectContext
     
     @Published var courses: [CourseModel] = []
     @Published var selectedCourse: CourseModel?
@@ -39,12 +44,9 @@ class GameCardViewModel: GameCardViewModelling {
 
     let networking: Networking
     
-    init(manager: DatabaseManager,
-         networking: Networking,
-         context: NSManagedObjectContext,
+    init(networking: Networking,
          gameData: Game?) {
-        self.manager = manager
-        self.context = context
+        self.manager = DatabaseManager.sharedInstance
         self.gameData = gameData
         
         self.networking = networking
@@ -60,40 +62,40 @@ class GameCardViewModel: GameCardViewModelling {
         }
     }
     
+    //TODO: Move database logic to manager.
     func saveData(courseName: String,
                   date: Date,
                   scores: Scores,
                   par: Int32) {
         
-        //TODO: Move this to database manager?
-        let game = Game(context: self.context)
-        game.id = UUID()
-        game.course = courseName
-        game.date = date
-        game.scores = scores
-        game.par = par
-        
-        do {
-            try self.context.save()
-        } catch {
-            //TODO: Handle error
-            print("Unable to save game: \(error.localizedDescription)")
-        }
+        manager.saveData(
+            courseName: courseName,
+            date: date,
+            scores: scores,
+            par: par
+        )
     }
     
     //TODO: Assign to button
     func deleteData(game: Game) {
-        self.context.delete(game)
-        
-        do {
-            try self.context.save()
-        } catch {
-            //TODO: Handle error
-            print("Unable to save game: \(error.localizedDescription)")
-        }
+        manager.deleteData(game: game)
     }
     
-    func updateData(game: Game) {}
+    func updateData(game: Game,
+                    courseName: String,
+                    date: Date,
+                    scores: Scores,
+                    par: Int32) {
+        
+        guard let id = game.id else { return }
+        
+        manager.updateGame(id: id,
+                           courseName:
+                            courseName,
+                           date: date,
+                           scores: scores,
+                           par: par)
+    }
     
     func getTotalScore(scores: [Score]) -> Int {
         return scores.reduce(0) { $0 + $1.score }

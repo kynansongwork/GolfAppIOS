@@ -26,10 +26,8 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
                 ScrollView(.vertical) {
                     ForEach(games, id: \.self) { game in
                         NavigationLink(destination: {
-                            GameCardView(viewModel: GameCardViewModel(manager: manager,
-                                                                      networking: NetworkingManager(url: nil,
+                            GameCardView(viewModel: GameCardViewModel(networking: NetworkingManager(url: nil,
                                                                                                     urlSession: URLSession.shared),
-                                                                      context: viewContext,
                                                                       gameData: game))
                             .padding(.all, 20)
                             
@@ -48,10 +46,8 @@ struct GamesView<ViewModel: GamesViewModelling>: View {
             .navigationTitle("Game Tracker")
         }
         .navigationDestination(isPresented: $addGamePressed) {
-            GameCardView(viewModel: GameCardViewModel(manager: manager,
-                                                      networking: NetworkingManager(url: nil,
+            GameCardView(viewModel: GameCardViewModel(networking: NetworkingManager(url: nil,
                                                                                     urlSession: URLSession.shared),
-                                                      context: viewContext,
                                                       gameData: nil))
         }
     }
