@@ -82,7 +82,7 @@ class DatabaseManager: NSObject, ObservableObject {
             let results = try context.fetch(fetchRequest)
             
             if let currentGame = results.first {
-                // Update only the non-nil parameters
+
                 if let courseName = courseName {
                     currentGame.course = courseName
                 }

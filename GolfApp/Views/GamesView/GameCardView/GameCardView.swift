@@ -64,6 +64,7 @@ struct GameCardView<ViewModel: GameCardViewModelling>: View {
                                         if let game = viewModel.gameData?.scores {
                                             
                                             if game.scores.contains(where: { $0.hole == hole }) {
+                                                //TODO: [hole-1] will break if the user leaves empty scores out of order. Fix this
                                                 GameCardScoreView(score: String(game.scores[hole - 1].score),
                                                                   par: String(game.scores[hole - 1].par),
                                                                   courseHole: hole,

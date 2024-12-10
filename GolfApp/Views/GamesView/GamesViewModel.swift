@@ -8,9 +8,7 @@
 import Foundation
 
 protocol GamesViewModelling: ObservableObject {
-    
     func mapGameInfo(game: Game) -> GameInfo
-    
 }
 
 class GamesViewModel: GamesViewModelling {
