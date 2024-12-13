@@ -7,6 +7,7 @@
 
 import Combine
 import CoreLocation
+import MapKit
 
 enum MapViewState: Equatable {
     case loaded
@@ -25,6 +26,8 @@ protocol CoursesMapViewModelling: ObservableObject {
     func fetchCourses()
     func getLocation()
     func distanceFromUser(filter: CGFloat)
+    
+    func getDirectionsToCourse(course: CourseModel) async -> MKRoute?
 }
 
 class CoursesMapViewModel: CoursesMapViewModelling {
@@ -81,6 +84,18 @@ class CoursesMapViewModel: CoursesMapViewModelling {
         }
     }
     
+    func getDirectionsToCourse(course: CourseModel) async -> MKRoute? {
+        
+        let coordinates = course.coordinates
+        let location = CLLocationCoordinate2D.init(latitude: coordinates.latitude,
+                                                   longitude: coordinates.longitude)
+        
+        guard let route = await locationManager.showDirections(location: location) else { return nil }
+        
+        return route
+    }
+    
+    ///Used for filtering out courses based on distance from user.
     func distanceFromUser(filter: CGFloat) {
         
         var filteredCourses: [CourseModel] = []

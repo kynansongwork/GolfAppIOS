@@ -54,6 +54,28 @@ class LocationManager: NSObject, ObservableObject {
             break
         }
     }
+    
+    //MARK: Probably better to punt the user to google or apple maps based on preference.
+    func showDirections(location: CLLocationCoordinate2D) async -> MKRoute? {
+        
+        guard let startingPoint = userLocation else { return nil }
+        //TODO: Error handle later
+        
+        let request = MKDirections.Request()
+        let destination = MKPlacemark(coordinate: location)
+        
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: startingPoint))
+        request.destination = MKMapItem(placemark: destination)
+        
+        let directions = MKDirections(request: request)
+        let response = try? await directions.calculate()
+        let route = response?.routes.first
+        return route
+    }
+    
+    func openNavigationApp(location: CLLocationCoordinate2D) {
+        
+    }
 }
 
 extension LocationManager: CLLocationManagerDelegate {

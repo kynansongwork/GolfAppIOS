@@ -14,6 +14,7 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
     
     @State var position: MapCameraPosition = .automatic
     @State var selectedCourse: String?
+    @State private var route: MKRoute?
     
     private var selectedPlace: CourseModel? {
         if let selectedCourse {
@@ -29,7 +30,6 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
                 selection: $selectedCourse) {
                 
                 // Markers to show courses across Scotland.
-                //TODO: Will need filtering.
                 ForEach(viewModel.courses) { course in
                     Marker(course.course, coordinate: CLLocationCoordinate2D(
                         latitude: course.coordinates.latitude,
@@ -42,9 +42,27 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
                     UserAnnotation()
                 }
                 
+                if let route {
+                    MapPolyline(route)
+                        .stroke(.blue, lineWidth: 5)
+                }
+                
             }
             .onAppear {
                 viewModel.getLocation()
+            }
+            .onChange(of: selectedCourse) {
+                
+                _ = viewModel.courses.contains { course in
+                    if course.course == selectedCourse {
+                        Task { @MainActor in
+                            route = await viewModel.getDirectionsToCourse(course: course)
+                        }
+                        return true
+                    }
+                    return false
+                }
+                
             }
             .mapStyle(MapStyle.standard(elevation: MapStyle.Elevation.realistic))
             .mapControls {
@@ -69,7 +87,6 @@ struct CoursesMapView<ViewModel: CoursesMapViewModelling>: View {
                 ) {}
                 .padding(.all, 20)
             }
-
         }
     }
 }
